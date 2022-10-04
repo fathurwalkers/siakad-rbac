@@ -19,6 +19,16 @@ class BackController extends Controller
         return view('dashboard.index');
     }
 
+    public function login_client()
+    {
+        return view('login-client');
+    }
+
+    public function login_admin()
+    {
+        return view('login-admin');
+    }
+
     public function logout(Request $request)
     {
         $cek_logout_request = $request->logoutrequest;
