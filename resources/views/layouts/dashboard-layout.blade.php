@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="{{ asset('assets/ruangadmin') }}/img/logo/logo.png" rel="icon">
-    <title>RuangAdmin - Dashboard</title>
+    <title>@yield('title')</title>
     <link href="{{ asset('assets/ruangadmin') }}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
         type="text/css">
     <link href="{{ asset('assets/ruangadmin') }}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"
