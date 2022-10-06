@@ -10,6 +10,16 @@ class CreateLoginsTable extends Migration
     {
         Schema::create('login', function (Blueprint $table) {
             $table->id();
+
+            $table->string('login_nama')->nullable();
+            $table->string('login_username')->unique()->nullable();
+            $table->string('login_password')->nullable();
+            $table->string('login_email')->unique()->nullable();
+            $table->string('login_telepon')->nullable();
+            $table->text('login_token')->nullable();
+            $table->string('login_level')->nullable(); // ADMIN - GURU - SISWA
+            $table->string('login_status')->nullable(); // unverified / verified
+
             $table->timestamps();
         });
     }
