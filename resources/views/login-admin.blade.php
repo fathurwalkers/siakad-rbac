@@ -31,6 +31,15 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">ADMIN LOGIN <br>SIAKAD SMP 17</h1>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-lg-12">
+                                            @if (session('status'))
+                                                <div class="alert alert-success">
+                                                    {{ session('status') }}
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
                                     <form class="user" action="{{ route('post-login') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="cekrequest" value="admin">
