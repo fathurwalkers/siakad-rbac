@@ -29,11 +29,11 @@
                             <div class="col-lg-12">
                                 <div class="login-form">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">LOGIN <br>SIAKAD SMP 17</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">ADMIN LOGIN <br>SIAKAD SMP 17</h1>
                                     </div>
                                     <form class="user" action="{{ route('post-login') }}" method="POST">
                                         @csrf
-                                        <input type="hidden" name="cekrequest" value="siswa">
+                                        <input type="hidden" name="cekrequest" value="admin">
                                         <div class="form-group">
                                             <input type="text" name="login_username" class="form-control"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"

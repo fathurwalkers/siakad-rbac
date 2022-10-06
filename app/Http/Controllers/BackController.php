@@ -39,15 +39,17 @@ class BackController extends Controller
 
     public function logout(Request $request)
     {
-        $cek_logout_request = $request->logoutrequest;
-        switch ($cek_logout_request) {
-            case 'ADMIN':
+        // $cek_logout_request = $request->logoutrequest;
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        switch ($users->login_level) {
+            case 'admin':
                 $users = session('data_login');
                 $request->session()->forget(['data_login']);
                 $request->session()->flush();
                 return redirect()->route('login-admin')->with('status', 'Anda telah logout!');
                 break;
-            case 'SISWA':
+            case 'siswa':
                 $users = session('data_login');
                 $request->session()->forget(['data_login']);
                 $request->session()->flush();
@@ -77,7 +79,7 @@ class BackController extends Controller
                     }
                 }
                 break;
-            case 'pengguna':
+            case 'siswa':
                 if ($cek_request == "admin") {
                     return redirect()->route('login-admin')->with('status', 'Maaf anda tidak dapat memasukkan akun user pada halaman administrator!');
                 }
@@ -85,7 +87,7 @@ class BackController extends Controller
                 if ($data_login) {
                     if ($cek_password) {
                         $users = session(['data_login' => $data_login]);
-                        return redirect()->route('client-index')->with('status', 'Berhasil Login!');
+                        return redirect()->route('dashboard')->with('status', 'Berhasil Login!');
                     }
                 }
                 break;

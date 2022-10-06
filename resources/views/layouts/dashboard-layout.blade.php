@@ -17,9 +17,6 @@
 </head>
 
 <body id="page-top">
-    @php
-        $users = session('data_login');
-    @endphp
     <div id="wrapper">
         <!-- Sidebar -->
         <x-dashboard-sidebar />

@@ -17,9 +17,6 @@
 
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        @php
-                            dd($users);
-                        @endphp
                         <input type="hidden" name="logoutrequest">
                         <button type="button" class="btn btn-warning" data-dismiss="modal">Batalkan</button>
                         <button type="submit" class="btn btn-danger">Keluar</button>
