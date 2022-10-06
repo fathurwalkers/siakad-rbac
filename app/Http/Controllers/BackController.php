@@ -19,13 +19,13 @@ class BackController extends Controller
         return view('dashboard.index');
     }
 
-    public function login_client()
+    public function login_siswa()
     {
         $users = session('data_login');
         if ($users) {
             return redirect()->route('dashboard');
         }
-        return view('login-client');
+        return view('login-siswa');
     }
 
     public function login_admin()
