@@ -9,4 +9,12 @@ use App\Models\Data;
 class Login extends Model
 {
     use HasFactory;
+    protected $table = "login";
+    protected $guarded = [];
+    protected $primaryKey = "id";
+
+    public function data()
+    {
+        return $this->hasMany(Data::class);
+    }
 }
