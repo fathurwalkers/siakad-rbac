@@ -8,7 +8,7 @@ class CreateLoginsTable extends Migration
 {
     public function up()
     {
-        Schema::create('logins', function (Blueprint $table) {
+        Schema::create('login', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -16,6 +16,6 @@ class CreateLoginsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('logins');
+        Schema::dropIfExists('login');
     }
 }
