@@ -7,6 +7,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login', [BackController::class, 'login_client'])->name('login-client');
+Route::get('/login-admin', [BackController::class, 'login_admin'])->name('login-admin');
+
 Route::group(['prefix' => '/dashboard'], function () {
     // DASHBOARD ROUTE
     Route::get('/', [BackController::class, 'index'])->name('dashboard');
