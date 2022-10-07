@@ -20,10 +20,12 @@ class CreateGurusTable extends Migration
             $table->string('guru_status')->nullable();
             $table->string('guru_kode');
 
+            $table->unsignedBigInteger('login_id')->nullable();
             $table->unsignedBigInteger('semester_id')->nullable();
             $table->unsignedBigInteger('kelas_id')->nullable();
             $table->unsignedBigInteger('matapelajaran_id')->nullable();
 
+            $table->foreign('login_id')->references('id')->on('login');
             $table->foreign('semester_id')->references('id')->on('semester');
             $table->foreign('kelas_id')->references('id')->on('kelas');
             $table->foreign('matapelajaran_id')->references('id')->on('matapelajaran');

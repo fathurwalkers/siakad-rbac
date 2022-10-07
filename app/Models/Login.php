@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Data;
+use App\Models\Absensi;
+use App\Models\Guru;
+use App\Models\Siswa;
 
 class Login extends Model
 {
@@ -12,4 +14,19 @@ class Login extends Model
     protected $table = "login";
     protected $guarded = [];
     protected $primaryKey = "id";
+
+    public function absensi()
+    {
+        return $this->hasMany(Absensi::class);
+    }
+
+    public function guru()
+    {
+        return $this->hasMany(Guru::class);
+    }
+
+    public function siswa()
+    {
+        return $this->hasMany(Siswa::class);
+    }
 }

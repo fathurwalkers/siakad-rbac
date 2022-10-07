@@ -16,9 +16,6 @@ class CreateSemestersTable extends Migration
             $table->string('semester_tahunajaran')->nullable();
             $table->string('semester_nipkepsek')->nullable();
 
-            $table->unsignedBigInteger('guru_id')->nullable();
-            $table->foreign('guru_id')->references('id')->on('guru');
-
             $table->timestamps();
         });
     }

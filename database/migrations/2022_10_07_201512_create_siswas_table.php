@@ -19,7 +19,10 @@ class CreateSiswasTable extends Migration
             $table->string('siswa_foto')->nullable();
             $table->string('siswa_status')->nullable();
 
+            $table->unsignedBigInteger('login_id')->nullable();
             $table->unsignedBigInteger('kelas_id')->nullable();
+
+            $table->foreign('login_id')->references('id')->on('login')->onDelete('cascade');
             $table->foreign('kelas_id')->references('id')->on('kelas')->onDelete('cascade');
 
             $table->timestamps();
