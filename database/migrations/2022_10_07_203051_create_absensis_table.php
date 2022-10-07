@@ -6,26 +6,25 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAbsensisTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('absensis', function (Blueprint $table) {
+        Schema::create('absensi', function (Blueprint $table) {
             $table->id();
+
+            $table->string('absensi_matapelajaran');
+            $table->time('absensi_waktu');
+            $table->date('absensi_tanggal');
+
+            $table->unsignedBigInteger('login_id')->nullable();
+
+            $table->foreign('login_id')->references('id')->on('login');
+
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('absensis');
+        Schema::dropIfExists('absensi');
     }
 }
