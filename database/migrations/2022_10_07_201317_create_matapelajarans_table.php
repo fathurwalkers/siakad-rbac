@@ -10,6 +10,8 @@ class CreateMatapelajaransTable extends Migration
     {
         Schema::create('matapelajaran', function (Blueprint $table) {
             $table->id();
+            $table->string('matapelajaran_nama')->nullable();
+            $table->string('matapelajarna_kode')->nullable();
             $table->timestamps();
         });
     }

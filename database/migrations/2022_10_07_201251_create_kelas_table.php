@@ -10,6 +10,8 @@ class CreateKelasTable extends Migration
     {
         Schema::create('kelas', function (Blueprint $table) {
             $table->id();
+            $table->string('kelas_kode');
+            $table->string('kelas_nama');
             $table->timestamps();
         });
     }
