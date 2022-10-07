@@ -6,26 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAbsensisTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('absensis', function (Blueprint $table) {
+        Schema::create('absensi', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('absensis');
+        Schema::dropIfExists('absensi');
     }
 }
