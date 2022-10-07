@@ -19,7 +19,7 @@ class CekLogin
         //     session(['data_login' => $cookie]);
         //     return $next($request);
         } else {
-            return redirect()->route('login');
+            return redirect()->route('login-siswa');
         }
     }
 }

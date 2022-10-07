@@ -13,7 +13,7 @@ Route::get('/login-admin', [BackController::class, 'login_admin'])->name('login-
 Route::post('/proses-login', [BackController::class, 'post_login'])->name('post-login');
 Route::post('/logout', [BackController::class, 'logout'])->name('logout');
 
-Route::group(['prefix' => '/dashboard'], function () {
+Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function () {
     // DASHBOARD ROUTE
     Route::get('/', [BackController::class, 'index'])->name('dashboard');
 });
