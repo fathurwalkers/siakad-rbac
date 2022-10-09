@@ -1,6 +1,6 @@
 <div>
     <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
             <div class="sidebar-brand-icon">
                 <img src="{{ asset('assets/ruangadmin') }}/img/logo/logo2.png">
             </div>
@@ -8,7 +8,7 @@
         </a>
         <hr class="sidebar-divider my-0">
         <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{{ route('dashboard') }}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
@@ -45,7 +45,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Kelola Mata Pelajaran</h6>
                     <a class="collapse-item" href="{{ route('daftar-matapelajaran') }}">Daftar Mata Pelajaran</a>
-                    <a class="collapse-item" href="#">Tambah Mata Pelajaran</a>
+                    {{-- <a class="collapse-item" href="#">Tambah Mata Pelajaran</a> --}}
                 </div>
             </div>
         </li>
@@ -59,8 +59,8 @@
             <div id="collapseForm2" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Manajemen Nilai</h6>
-                    <a class="collapse-item" href="form_basics.html">Daftar Nilai</a>
-                    <a class="collapse-item" href="form_basics.html">Kelola Nilai</a>
+                    <a class="collapse-item" href="#">Daftar Nilai</a>
+                    <a class="collapse-item" href="#">Kelola Nilai</a>
                 </div>
             </div>
         </li>
@@ -93,12 +93,12 @@
                 </div>
             </div>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link" href="charts.html">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Pengaturan</span>
             </a>
-        </li>
+        </li> --}}
         <!-- ----------------------- END KELOLA LAINNYA ----------------------- -->
 
 

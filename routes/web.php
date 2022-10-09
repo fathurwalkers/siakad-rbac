@@ -7,6 +7,7 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\MatapelajaranController;
 use App\Http\Controllers\NilaiController;
+use App\Models\Matapelajaran;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,6 +31,8 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
 
     // MATA PELAJARAN ROUTE
     Route::get('/matapelajaran/daftar-matapelajaran', [MatapelajaranController::class, 'daftar_matapelajaran'])->name('daftar-matapelajaran');
+    Route::post('matapelajaran/tambah-matapelajaran', [MatapelajaranController::class, 'post_tambah_matapelajaran'])->name('post-tambah-matapelajaran');
+    Route::post('matapelajaran/ubah-matapelajaran/{id}', [MatapelajaranController::class, 'post_ubah_matapelajaran'])->name('post-ubah-matapelajaran');
 });
 
 Route::get('/generate-siswa', [GenerateController::class, 'generate_siswa'])->name('generate-siswa');

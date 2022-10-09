@@ -27,11 +27,58 @@
                 <div class="card-body">
                     <div class="container">
                         <div class="row">
-                            <h4>
-                                <b>
-                                    Daftar Mata Pelajaran
-                                </b>
-                            </h4>
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <h4>
+                                    <b>
+                                        Daftar Mata Pelajaran
+                                    </b>
+                                </h4>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-6 d-flex justify-content-end">
+                                <button type="button" class="btn btn-md btn-info" data-toggle="modal"
+                                    data-target="#modaltambah">
+                                    Tambah Mata Pelajaran
+                                </button>
+                            </div>
+
+                            {{-- MODAL TAMBAH DATA MATA PELAJARAN --}}
+                            <div class="modal fade" id="modaltambah" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabelLogout">
+                                                Tambah Mata Pelajaran
+                                            </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <form action="{{ route('post-tambah-matapelajaran') }}" method="POST">
+                                            @csrf
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Nama Mata Pelajaran</label>
+                                                            <input type="text" class="form-control"
+                                                                id="exampleInputEmail1" aria-describedby="emailHelp"
+                                                                placeholder="contoh : BAHASA INDONESIA"
+                                                                name="matapelajaran_nama">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-info"
+                                                    data-dismiss="modal">Batalkan</button>
+                                                <button type="submit" class="btn btn-success">Tambah</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                         <hr />
                         <div class="row">
@@ -55,14 +102,102 @@
                                                     <div class="row">
                                                         <div
                                                             class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
+                                                            {{-- <button href="#"
+                                                                class="btn btn-sm btn-primary mr-1">Lihat</button> --}}
                                                             <button href="#"
-                                                                class="btn btn-sm btn-primary mr-1">Lihat</button>
-                                                            <button href="#" class="btn btn-sm btn-success mr-1">Ubah</button>
-                                                            <button href="#" class="btn btn-sm btn-danger">Hapus</button>
+                                                                class="btn btn-sm btn-success mr-1" data-toggle="modal" data-target="#modalubah{{ $item->id }}">Ubah</button>
+                                                            <button href="#" class="btn btn-sm btn-danger"
+                                                                data-toggle="modal" data-target="#modalhapus">Hapus</button>
                                                         </div>
                                                     </div>
                                                 </td>
                                             </tr>
+
+                                            {{-- MODAL HAPUS MATA PELAJARAN --}}
+                                            <div class="modal fade" id="modalhapus" tabindex="-1" role="dialog"
+                                                aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabelLogout">
+                                                                Tambah Mata Pelajaran
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputEmail1">Nama Mata
+                                                                            Pelajaran</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="exampleInputEmail1"
+                                                                            aria-describedby="emailHelp"
+                                                                            placeholder="contoh : BAHASA INDONESIA">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+
+                                                            <form action="{{ route('logout') }}" method="POST">
+                                                                @csrf
+                                                                <input type="hidden" name="logoutrequest">
+                                                                <button type="button" class="btn btn-warning"
+                                                                    data-dismiss="modal">Batalkan</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-danger">Keluar</button>
+                                                            </form>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {{-- MODAL UBAH MATA PELAJARAN --}}
+                                            <div class="modal fade" id="modalubah{{ $item->id }}" tabindex="-1" role="dialog"
+                                                aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabelLogout">
+                                                                Tambah Mata Pelajaran
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <form action="{{ route('post-ubah-matapelajaran', $item->id) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                                                        <div class="form-group">
+                                                                            <label for="exampleInputEmail1">
+                                                                                Nama Mata Pelajaran</label>
+                                                                            <input type="text" class="form-control"
+                                                                                id="exampleInputEmail1"
+                                                                                aria-describedby="emailHelp" name="matapelajaran_nama" value="{{ $item->matapelajaran_nama }}">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-info"
+                                                                    data-dismiss="modal">Batalkan</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-success">Ubah</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         @endforeach
                                     </tbody>
                                 </table>
