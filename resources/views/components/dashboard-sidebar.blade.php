@@ -73,20 +73,18 @@
         <div class="sidebar-heading">
             Examples
         </div>
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage"
                 aria-expanded="true" aria-controls="collapsePage">
                 <i class="fas fa-fw fa-columns"></i>
-                <span>Pages</span>
+                <span>Kelola Pengguna</span>
             </a>
-            <div id="collapsePage" class="collapse show" aria-labelledby="headingPage"
+            <div id="collapsePage" class="collapse" aria-labelledby="headingPage"
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Example Pages</h6>
-                    <a class="collapse-item" href="login.html">Login</a>
-                    <a class="collapse-item" href="register.html">Register</a>
-                    <a class="collapse-item" href="404.html">404 Page</a>
-                    <a class="collapse-item active" href="blank.html">Blank Page</a>
+                    <h6 class="collapse-header">Manajemen Pengguna</h6>
+                    <a class="collapse-item" href="#">Daftar Siswa</a>
+                    <a class="collapse-item" href="#">Daftar Guru</a>
                 </div>
             </div>
         </li>
