@@ -22,6 +22,7 @@ class GenerateController extends Controller
     public function generate_siswa()
     {
         $faker                  = Faker::create('id_ID');
+        $kelas = Kelas::all()->toArray();
 
         for ($i=0; $i < 10; $i++) {
             $siswa = new Siswa;
@@ -42,6 +43,31 @@ class GenerateController extends Controller
                     break;
             }
 
+            // GENERATE DATA LOGIN
+            $token = Str::random(16);
+            $level = "user";
+            $hashPassword = Hash::make('12345', [
+                'rounds' => 12,
+            ]);
+            $hashToken = Hash::make($token, [
+                'rounds' => 12,
+            ]);
+            $username = strtolower(Str::random(10));
+            $save_login = $login->create([
+                'login_nama'        => $nama,
+                'login_username'    => $username,
+                'login_password'    => $hashPassword,
+                'login_email'       => $faker->email(),
+                'login_telepon'     => $save_mahasiswa->data_telepon,
+                'login_token'       => $hashToken,
+                'login_level'       => $level,
+                'login_status'      => "verified",
+                'created_at'        => now(),
+                'updated_at'        => now()
+            ]);
+            $save_login->save();
+
+            // GENERATE DATA SISWA
             $save_siswa = $siswa->create([
                 'siswa_nama' => $nama,
                 'siswa_nisn' => $siswa_nisn,
@@ -50,8 +76,14 @@ class GenerateController extends Controller
                 'siswa_telepon' => $telepon,
                 'siswa_foto' => $foto,
                 'siswa_status' => $status,
-                'login_id' => $status,
+                'login_id' => $save_login->id,
+                'kelas_id' => Arr::random($kelas["id"]),
+                'created_at' => now(),
+                'updated_at' => now()
             ]);
+            $save_siswa->save();
+            dump($save_login);
+            dump($save_siswa);
             die;
         }
     }
