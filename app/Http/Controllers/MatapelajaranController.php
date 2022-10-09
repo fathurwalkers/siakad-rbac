@@ -16,6 +16,7 @@ use App\Models\Kelas;
 use App\Models\Matapelajaran;
 use App\Models\Nilai;
 use App\Models\Semester;
+use Illuminate\Support\Facades\Redis;
 
 class MatapelajaranController extends Controller
 {
@@ -59,5 +60,20 @@ class MatapelajaranController extends Controller
         $matapelajaran_after = $matapelajaran->matapelajaran_nama;
         $alert = "Mata Pelajaran (" . $matapelajaran_before . ") Berhasil di ubah menjadi (" . $matapelajaran_after . ").";
         return redirect()->route('daftar-matapelajaran')->with('status', $alert);
+    }
+
+    public function post_hapus_matapelajaran(Request $request, $id)
+    {
+        $matapelajaran_id = $id;
+        $matapelajaran = Matapelajaran::find($matapelajaran_id);
+        $matapelajaran_nama = $matapelajaran->matapelajaran_nama;
+        $matapelajaran_hapus = $matapelajaran->forceDelete();
+        if ($matapelajaran_hapus == true) {
+            $alert = "Mata Pelajaran (" . $matapelajaran_nama . ") telah berhasil dihapus.";
+            return redirect()->route('daftar-matapelajaran')->with('status', $alert);
+        } else {
+            $alert = "Mata Pelajaran (" . $matapelajaran_nama . ") gagal dihapus.";
+            return redirect()->route('daftar-matapelajaran')->with('status', $alert);
+        }
     }
 }

@@ -55,7 +55,16 @@
                                                 <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td>{{ $item->guru_nama }}</td>
                                                 <td>{{ $item->guru_nip }}</td>
-                                                <td>{{ $item->guru_jeniskelamin }}</td>
+                                                <td>
+                                                    @switch($item->guru_jeniskelamin)
+                                                        @case("L")
+                                                            Laki - Laki
+                                                            @break
+                                                        @case("P")
+                                                            Perempuan
+                                                            @break
+                                                    @endswitch
+                                                </td>
                                                 <td>{{ $item->guru_telepon }}</td>
                                                 <td>{{ $item->matapelajaran->matapelajaran_nama }}</td>
                                                 <td>{{ $item->kelas->kelas_nama }}</td>

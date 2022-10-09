@@ -14,7 +14,7 @@
     <div class="row mt-1 mb-1">
         <div class="col-sm-12 col-md-12 col-lg-12">
             @if (session('status'))
-                <div class="alert alert-success">
+                <div class="alert alert-info">
                     {{ session('status') }}
                 </div>
             @endif
@@ -107,14 +107,14 @@
                                                             <button href="#"
                                                                 class="btn btn-sm btn-success mr-1" data-toggle="modal" data-target="#modalubah{{ $item->id }}">Ubah</button>
                                                             <button href="#" class="btn btn-sm btn-danger"
-                                                                data-toggle="modal" data-target="#modalhapus">Hapus</button>
+                                                                data-toggle="modal" data-target="#modalhapus{{ $item->id }}">Hapus</button>
                                                         </div>
                                                     </div>
                                                 </td>
                                             </tr>
 
                                             {{-- MODAL HAPUS MATA PELAJARAN --}}
-                                            <div class="modal fade" id="modalhapus" tabindex="-1" role="dialog"
+                                            <div class="modal fade" id="modalhapus{{ $item->id }}" tabindex="-1" role="dialog"
                                                 aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
@@ -130,26 +130,18 @@
                                                         <div class="modal-body">
                                                             <div class="row">
                                                                 <div class="col-sm-6 col-md-6 col-lg-6">
-                                                                    <div class="form-group">
-                                                                        <label for="exampleInputEmail1">Nama Mata
-                                                                            Pelajaran</label>
-                                                                        <input type="text" class="form-control"
-                                                                            id="exampleInputEmail1"
-                                                                            aria-describedby="emailHelp"
-                                                                            placeholder="contoh : BAHASA INDONESIA">
-                                                                    </div>
+                                                                    Apakah anda Yakin ingin menghapus Mata Pelajaran ({{ $item->matapelajaran_nama }}) ?
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
 
-                                                            <form action="{{ route('logout') }}" method="POST">
+                                                            <form action="{{ route('post-hapus-matapelajaran',$item->id) }}" method="POST">
                                                                 @csrf
-                                                                <input type="hidden" name="logoutrequest">
                                                                 <button type="button" class="btn btn-warning"
                                                                     data-dismiss="modal">Batalkan</button>
                                                                 <button type="submit"
-                                                                    class="btn btn-danger">Keluar</button>
+                                                                    class="btn btn-danger">Hapus</button>
                                                             </form>
 
                                                         </div>
