@@ -16,4 +16,8 @@ Route::post('/logout', [BackController::class, 'logout'])->name('logout');
 Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function () {
     // DASHBOARD ROUTE
     Route::get('/', [BackController::class, 'index'])->name('dashboard');
+
+    // SISWA ROUTE
+    Route::get('/siswa/daftar-siswa', [BackController::class, 'daftar_siswa'])->name('daftar-siswa');
+
 });
