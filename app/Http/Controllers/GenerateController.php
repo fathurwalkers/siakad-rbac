@@ -24,7 +24,7 @@ class GenerateController extends Controller
         $faker                  = Faker::create('id_ID');
         $kelas = Kelas::all()->toArray();
 
-        for ($i=0; $i < 10; $i++) {
+        for ($i=0; $i < 20; $i++) {
             $kelas_random = Arr::random($kelas);
             $siswa = new Siswa;
             $login = new Login;
@@ -83,10 +83,88 @@ class GenerateController extends Controller
                 'updated_at' => now()
             ]);
             $save_siswa->save();
-            // dump($kelas_random);
-            // dump($save_login);
-            // dump($save_siswa);
-            // die;
+        }
+        return redirect()->route('daftar-siswa')->with('status', 'Berhasil melakukan Auto Generate Data Siswa.');
+    }
+
+    public function generate_guru()
+    {
+        $faker = Faker::create('id_ID');
+        $kelas = Kelas::all()->toArray();
+        $semester = Semester::all()->toArray();
+        $mapel = Matapelajaran::all()->toArray();
+
+        for ($i=0; $i < 10; $i++) {
+            $kelas_random = Arr::random($kelas);
+            $semester_random = Arr::random($semester);
+            $mapel_random = Arr::random($mapel);
+            $guru = new Guru;
+            $login = new Login;
+            $array_gender = ["L", "P"];
+            $foto = "default-user.png";
+            $gender = Arr::random($array_gender);
+            $nip = $faker->randomNumber(8);
+            $telepon = $faker->phoneNumber();
+            $status = "AKTIF";
+            $alamat = $faker->address();
+            $kode = strtoupper(Str::random(10));
+            switch ($gender) {
+                case "L":
+                    $nama = $faker->firstNameMale() . " " . $faker->lastNameMale();
+                    break;
+                case "P":
+                    $nama = $faker->firstNameFemale() . " " . $faker->lastNameFemale();
+                    break;
+            }
+
+            // GENERATE DATA LOGIN
+            $token = Str::random(16);
+            $level = "user";
+            $hashPassword = Hash::make('12345', [
+                'rounds' => 12,
+            ]);
+            $hashToken = Hash::make($token, [
+                'rounds' => 12,
+            ]);
+            $username = strtolower(Str::random(10));
+            $save_login = $login->create([
+                'login_nama'        => $nama,
+                'login_username'    => $username,
+                'login_password'    => $hashPassword,
+                'login_email'       => $faker->email(),
+                'login_telepon'     => $telepon,
+                'login_token'       => $hashToken,
+                'login_level'       => $level,
+                'login_status'      => "verified",
+                'created_at'        => now(),
+                'updated_at'        => now()
+            ]);
+            $save_login->save();
+
+            // GENERATE DATA GURU
+            $save_guru = $guru->create([
+                'guru_nama' => $nama,
+                'guru_nip' => $nip,
+                'guru_jeniskelamin' => $gender,
+                'guru_telepon' => $telepon,
+                'guru_foto' => $foto,
+                'guru_status' => $status,
+                'guru_kode' => $kode,
+                'login_id' => $save_login->id,
+                'semester_id' => $semester_random["id"],
+                'kelas_id' => $kelas_random["id"],
+                'matapelajaran_id' => $mapel_random["id"],
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+            $save_guru->save();
+
+            dump($kelas_random);
+            dump($semester_random);
+            dump($mapel_random);
+            dump($save_guru);
+            dump($save_login);
+            die;
         }
     }
 }

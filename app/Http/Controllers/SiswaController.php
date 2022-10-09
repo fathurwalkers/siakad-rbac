@@ -23,8 +23,10 @@ class SiswaController extends Controller
     {
         $session_users = session('data_login');
         $users = Login::find($session_users->id);
+        $siswa = Siswa::all();
         return view('dashboard.daftar-siswa', [
-            'users' => $users
+            'users' => $users,
+            'siswa' => $siswa
         ]);
     }
 }

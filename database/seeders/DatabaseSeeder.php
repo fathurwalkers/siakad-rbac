@@ -172,5 +172,47 @@ class DatabaseSeeder extends Seeder
             ]);
             $save_kelas->save();
         }
+
+        // GENERATE MATA PELAJARAN
+        $array_mapel = [
+            'Matematika',
+            'Bahasa Indonesia',
+            'Bahasa Inggris',
+            'SBK',
+            'IPS',
+            'IPA',
+            'Prakarya',
+            'Pendidikan Agama Islam',
+            'Pendidikan Kewarganegaraan',
+            'BK',
+            'Penjaskes'
+        ];
+        foreach ($array_mapel as $item) {
+            Matapelajaran::create([
+                'matapelajaran_nama' => strtoupper($item),
+                'matapelajaran_kode' => 'MAPEL-'.strtoupper(Str::random(5)),
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+        }
+
+        // GENERATE DATA SEMESTER
+        $tahun_ajaran = [
+            '2020/2021',
+            '2021/2022',
+            '2022/2023',
+        ];
+        foreach ($tahun_ajaran as $temsss) {
+            $semester = new Semester;
+            $saveSemester = $semester->create([
+                'semester_kode' => 'SEMESTER-'.strtoupper(Str::random('5')),
+                'semester_status' => 'AKTIF',
+                'semester_tahunajaran' => $temsss,
+                'semester_nipkepsek' => $faker->randomNumber(8),
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+            $saveSemester->save();
+        }
     }
 }
