@@ -19,5 +19,12 @@ use App\Models\Semester;
 
 class SiswaController extends Controller
 {
-    //
+    public function daftar_siswa()
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        return view('dashboard.daftar-siswa', [
+            'users' => $users
+        ]);
+    }
 }

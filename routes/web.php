@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BackController;
+use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,6 +19,6 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     Route::get('/', [BackController::class, 'index'])->name('dashboard');
 
     // SISWA ROUTE
-    Route::get('/siswa/daftar-siswa', [BackController::class, 'daftar_siswa'])->name('daftar-siswa');
+    Route::get('/siswa/daftar-siswa', [SiswaController::class, 'daftar_siswa'])->name('daftar-siswa');
 
 });

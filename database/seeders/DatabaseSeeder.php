@@ -131,5 +131,39 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
+
+
+
+        // GENERATE KELAS
+        $kelas = new Kelas;
+        $array_kelas = [
+            'VII-1',
+            'VII-2',
+            'VII-3',
+            'VII-4',
+            'VII-5',
+            'VII-6',
+            'VIII-1',
+            'VIII-2',
+            'VIII-3',
+            'VIII-4',
+            'VIII-5',
+            'IX-1',
+            'IX-2',
+            'IX-3',
+            'IX-4',
+            'IX-5',
+            'IX-6',
+            'IX-7'
+        ];
+        foreach ($array_kelas as $item) {
+            $save_kelas = $kelas->create([
+                'kelas_kode' => strtoupper(Str::random(3)) . "-" . strtoupper(Str::random(3)),
+                'kelas_nama' => $item,
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+            $save_kelas->save();
+        }
     }
 }
