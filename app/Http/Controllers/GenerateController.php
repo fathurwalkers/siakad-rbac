@@ -158,13 +158,7 @@ class GenerateController extends Controller
                 'updated_at' => now()
             ]);
             $save_guru->save();
-
-            dump($kelas_random);
-            dump($semester_random);
-            dump($mapel_random);
-            dump($save_guru);
-            dump($save_login);
-            die;
         }
+        return redirect()->route()->with('status', 'Berhasil Auto Generate Data Guru.');
     }
 }
