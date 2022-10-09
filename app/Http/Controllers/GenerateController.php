@@ -159,6 +159,6 @@ class GenerateController extends Controller
             ]);
             $save_guru->save();
         }
-        return redirect()->route()->with('status', 'Berhasil Auto Generate Data Guru.');
+        return redirect()->route('daftar-guru')->with('status', 'Berhasil Auto Generate Data Guru.');
     }
 }

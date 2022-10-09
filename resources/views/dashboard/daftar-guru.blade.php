@@ -50,7 +50,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($siswa as $item)
+                                        @foreach ($guru as $item)
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td>{{ $item->guru_nama }}</td>

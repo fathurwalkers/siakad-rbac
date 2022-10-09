@@ -19,7 +19,7 @@
             Menu Kelola
         </div>
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
                 aria-expanded="true" aria-controls="collapseBootstrap">
                 <i class="far fa-fw fa-window-maximize"></i>
@@ -29,12 +29,11 @@
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Manajemen Absensi</h6>
-                    {{-- <a class="collapse-item" href="alerts.html">Absensi</a> --}}
                     <a class="collapse-item" href="alerts.html">Daftar Absensi</a>
                     <a class="collapse-item" href="alerts.html">Kelola Absensi</a>
                 </div>
             </div>
-        </li>
+        </li> --}}
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm"
@@ -90,7 +89,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Manajemen Pengguna</h6>
                     <a class="collapse-item" href="{{ route('daftar-siswa') }}">Daftar Siswa</a>
-                    <a class="collapse-item" href="#">Daftar Guru</a>
+                    <a class="collapse-item" href="{{ route('daftar-guru') }}">Daftar Guru</a>
                 </div>
             </div>
         </li>

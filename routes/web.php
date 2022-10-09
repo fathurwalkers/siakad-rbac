@@ -1,9 +1,12 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BackController;
 use App\Http\Controllers\GenerateController;
 use App\Http\Controllers\SiswaController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GuruController;
+use App\Http\Controllers\MatapelajaranController;
+use App\Http\Controllers\NilaiController;
 
 Route::get('/', function () {
     return view('welcome');

@@ -19,7 +19,7 @@ use App\Models\Semester;
 
 class GuruController extends Controller
 {
-    public function daftar_siswa()
+    public function daftar_guru()
     {
         $session_users = session('data_login');
         $users = Login::find($session_users->id);
