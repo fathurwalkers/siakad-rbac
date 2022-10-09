@@ -44,8 +44,8 @@
             <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Kelola Mata Pelajaran</h6>
-                    <a class="collapse-item" href="form_basics.html">Daftar Mata Pelajaran</a>
-                    <a class="collapse-item" href="form_advanceds.html">Tambah Mata Pelajaran</a>
+                    <a class="collapse-item" href="{{ route('daftar-matapelajaran') }}">Daftar Mata Pelajaran</a>
+                    <a class="collapse-item" href="#">Tambah Mata Pelajaran</a>
                 </div>
             </div>
         </li>
