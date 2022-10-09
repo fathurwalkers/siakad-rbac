@@ -10,6 +10,15 @@
 
 {{--------------------- main content ---------------------}}
 @section('main-content')
+<div class="row mt-1 mb-1">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        @if (session('status'))
+            <div class="alert alert-info">
+                {{ session('status') }}
+            </div>
+        @endif
+    </div>
+</div>
 <div class="row">
     <div class="col-xl-4 col-md-4 mb-4">
         <div class="card h-100">
