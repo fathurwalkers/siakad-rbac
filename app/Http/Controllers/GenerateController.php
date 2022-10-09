@@ -25,6 +25,7 @@ class GenerateController extends Controller
         $kelas = Kelas::all()->toArray();
 
         for ($i=0; $i < 10; $i++) {
+            $kelas_random = Arr::random($kelas);
             $siswa = new Siswa;
             $login = new Login;
             $array_gender = ["L", "P"];
@@ -58,7 +59,7 @@ class GenerateController extends Controller
                 'login_username'    => $username,
                 'login_password'    => $hashPassword,
                 'login_email'       => $faker->email(),
-                'login_telepon'     => $save_mahasiswa->data_telepon,
+                'login_telepon'     => $telepon,
                 'login_token'       => $hashToken,
                 'login_level'       => $level,
                 'login_status'      => "verified",
@@ -70,21 +71,22 @@ class GenerateController extends Controller
             // GENERATE DATA SISWA
             $save_siswa = $siswa->create([
                 'siswa_nama' => $nama,
-                'siswa_nisn' => $siswa_nisn,
+                'siswa_nisn' => $nisn,
                 'siswa_jeniskelamin' => $gender,
                 'siswa_alamat' => $alamat,
                 'siswa_telepon' => $telepon,
                 'siswa_foto' => $foto,
                 'siswa_status' => $status,
                 'login_id' => $save_login->id,
-                'kelas_id' => Arr::random($kelas["id"]),
+                'kelas_id' => $kelas_random["id"],
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
             $save_siswa->save();
-            dump($save_login);
-            dump($save_siswa);
-            die;
+            // dump($kelas_random);
+            // dump($save_login);
+            // dump($save_siswa);
+            // die;
         }
     }
 }

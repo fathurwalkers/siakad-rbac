@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BackController;
+use App\Http\Controllers\GenerateController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,5 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     Route::get('/siswa/daftar-siswa', [SiswaController::class, 'daftar_siswa'])->name('daftar-siswa');
 
 });
+
+Route::get('/generate-siswa', [GenerateController::class, 'generate_siswa'])->name('generate-siswa');
