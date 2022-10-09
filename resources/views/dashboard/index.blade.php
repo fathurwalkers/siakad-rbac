@@ -11,7 +11,7 @@
 {{--------------------- main content ---------------------}}
 @section('main-content')
 <div class="row">
-    <div class="col-xl-3 col-md-6 mb-4">
+    <div class="col-xl-4 col-md-4 mb-4">
         <div class="card h-100">
             <div class="card-body">
                 <div class="row align-items-center">
@@ -30,7 +30,7 @@
             </div>
         </div>
     </div>
-    <div class="col-xl-3 col-md-6 mb-4">
+    <div class="col-xl-4 col-md-4 mb-4">
         <div class="card h-100">
             <div class="card-body">
                 <div class="row align-items-center">
@@ -49,7 +49,7 @@
             </div>
         </div>
     </div>
-    <div class="col-xl-3 col-md-6 mb-4">
+    <div class="col-xl-4 col-md-4 mb-4">
         <div class="card h-100">
             <div class="card-body">
                 <div class="row align-items-center">
@@ -115,22 +115,29 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Tiger Nixon</td>
+                                <td>Hasnah</td>
                                 <td>User Login</td>
                                 <td>LOG93D9CG</td>
                                 <td>Login</td>
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td>Leil Nixon</td>
+                                <td>Dion Pramudya</td>
                                 <td>User Login</td>
                                 <td>LOG9V49CG</td>
                                 <td>Login</td>
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td>Leil Nixon</td>
+                                <td>Usman Azis</td>
                                 <td>Ubah</td>
+                                <td>LOG96VSCG</td>
+                                <td>Manajemen Data</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Ahmad M</td>
+                                <td>Hapus</td>
                                 <td>LOG96VSCG</td>
                                 <td>Manajemen Data</td>
                             </tr>
