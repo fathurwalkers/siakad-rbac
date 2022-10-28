@@ -40,12 +40,8 @@
                                     <thead class="thead-dark">
                                         <tr>
                                             <th>No.</th>
-                                            <th>Nama</th>
-                                            <th>NIP</th>
-                                            <th>Jenis Kelamin</th>
-                                            <th>No. Telepon</th>
-                                            <th>Mata Pelajaran</th>
                                             <th>Kelas</th>
+                                            <th>Jumlah Siswa</th>
                                             <th>Kelola</th>
                                         </tr>
                                     </thead>
@@ -53,21 +49,9 @@
                                         @foreach ($guru as $item)
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                                <td>{{ $item->guru_nama }}</td>
-                                                <td>{{ $item->guru_nip }}</td>
-                                                <td>
-                                                    @switch($item->guru_jeniskelamin)
-                                                        @case("L")
-                                                            Laki - Laki
-                                                            @break
-                                                        @case("P")
-                                                            Perempuan
-                                                            @break
-                                                    @endswitch
-                                                </td>
-                                                <td>{{ $item->guru_telepon }}</td>
-                                                <td>{{ $item->matapelajaran->matapelajaran_nama }}</td>
+
                                                 <td>{{ $item->kelas->kelas_nama }}</td>
+
                                                 <td>
                                                     <div class="row">
                                                         <div
