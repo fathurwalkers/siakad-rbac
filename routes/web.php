@@ -30,8 +30,11 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     // GURU ROUTE
     Route::get('/guru/daftar-guru', [GuruController::class, 'daftar_guru'])->name('daftar-guru');
 
-    // KELAS
+    // KELAS ROUTE
     Route::get('/kelas/daftar-kelas', [KelasController::class, 'daftar_kelas'])->name('daftar-kelas');
+
+    // NILAI ROUTE
+    Route::get('/nilai/daftar-nilai', [NilaiController::class, 'daftar_nilai'])->name('daftar-nilai');
 
     // MATA PELAJARAN ROUTE
     Route::get('/matapelajaran/daftar-matapelajaran', [MatapelajaranController::class, 'daftar_matapelajaran'])->name('daftar-matapelajaran');

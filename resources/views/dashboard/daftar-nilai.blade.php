@@ -41,18 +41,17 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Nama Siswa</th>
-                                            <th>Mata Pelajaran</th>
-                                            <th>Status</th>
                                             <th>Kelas</th>
                                             <th>Kelola</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($Nilai as $item)
+                                        @foreach ($siswa as $item)
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration }}</td>
 
-                                                <td>{{ $item->Nilai_nama }}</td>
+                                                <td>{{ $item->siswa_nama }}</td>
+                                                <td>{{ $item->kelas->kelas_nama }}</td>
 
                                                 <td>
                                                     <div class="row">
