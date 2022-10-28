@@ -162,6 +162,11 @@ class GenerateController extends Controller
         return redirect()->route('daftar-guru')->with('status', 'Berhasil Auto Generate Data Guru.');
     }
 
+    public function generate_nilai()
+    {
+        $nilai = new Nilai;
+    }
+
     public function generate_all()
     {
         $this->generate_siswa();
