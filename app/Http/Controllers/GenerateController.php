@@ -165,6 +165,10 @@ class GenerateController extends Controller
     public function generate_nilai()
     {
         $nilai = new Nilai;
+        $siswa = Siswa::all();
+        foreach ($siswa as $item) {
+            //
+        }
     }
 
     public function generate_all()
