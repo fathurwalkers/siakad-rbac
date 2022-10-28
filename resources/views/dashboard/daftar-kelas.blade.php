@@ -41,23 +41,22 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Kelas</th>
-                                            <th>Jumlah Siswa</th>
                                             <th>Kelola</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($guru as $item)
+                                        @foreach ($kelas as $item)
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration }}</td>
 
-                                                <td>{{ $item->kelas->kelas_nama }}</td>
+                                                <td>{{ $item->kelas_nama }}</td>
 
                                                 <td>
                                                     <div class="row">
                                                         <div
                                                             class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
                                                             <button href="#"
-                                                                class="btn btn-sm btn-primary mr-1">Lihat</button>
+                                                                class="btn btn-sm btn-primary mr-1">Lihat Kelas</button>
                                                             <button href="#" class="btn btn-sm btn-success mr-1">Ubah</button>
                                                             <button href="#" class="btn btn-sm btn-danger">Hapus</button>
                                                         </div>

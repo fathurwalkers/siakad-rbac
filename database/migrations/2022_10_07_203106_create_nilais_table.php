@@ -16,7 +16,7 @@ class CreateNilaisTable extends Migration
             $table->string('nilai_siswa_uts')->nullable();
             $table->string('nilai_siswa_uas')->nullable();
             $table->string('nilai_ratarata')->nullable();
-            $table->time('nilai_waktu');
+            $table->text('nilai_keterangan')->nullable();
             $table->date('nilai_tanggal');
 
             $table->unsignedBigInteger('matapelajaran_id')->nullable();

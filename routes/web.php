@@ -5,6 +5,7 @@ use App\Http\Controllers\BackController;
 use App\Http\Controllers\GenerateController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\KelasController;
 use App\Http\Controllers\MatapelajaranController;
 use App\Http\Controllers\NilaiController;
 use App\Models\Matapelajaran;
@@ -28,6 +29,9 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
 
     // GURU ROUTE
     Route::get('/guru/daftar-guru', [GuruController::class, 'daftar_guru'])->name('daftar-guru');
+
+    // KELAS
+    Route::get('/kelas/daftar-kelas', [KelasController::class, 'daftar_kelas'])->name('daftar-kelas');
 
     // MATA PELAJARAN ROUTE
     Route::get('/matapelajaran/daftar-matapelajaran', [MatapelajaranController::class, 'daftar_matapelajaran'])->name('daftar-matapelajaran');

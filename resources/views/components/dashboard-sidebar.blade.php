@@ -36,6 +36,21 @@
         </li> --}}
 
         <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm1"
+                aria-expanded="true" aria-controls="collapseForm1">
+                <i class="fab fa-fw fa-wpforms"></i>
+                <span>Kelas</span>
+            </a>
+            <div id="collapseForm1" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Kelola Kelas</h6>
+                    <a class="collapse-item" href="{{ route('daftar-kelas') }}">Daftar Kelas</a>
+                    {{-- <a class="collapse-item" href="#">Tambah Mata Pelajaran</a> --}}
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm"
                 aria-expanded="true" aria-controls="collapseForm">
                 <i class="fab fa-fw fa-wpforms"></i>

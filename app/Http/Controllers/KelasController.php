@@ -24,8 +24,11 @@ class KelasController extends Controller
     {
         $session_users = session('data_login');
         $users = Login::find($session_users->id);
+        $kelas = Kelas::all();
+        $siswa = Siswa::all();
         return view('dashboard.daftar-kelas', [
-            'users' => $users
+            'users' => $users,
+            'kelas' => $kelas,
         ]);
     }
 }
