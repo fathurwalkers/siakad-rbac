@@ -166,8 +166,45 @@ class GenerateController extends Controller
     {
         $nilai = new Nilai;
         $siswa = Siswa::all();
+        $matapelajaran = Matapelajaran::all();
+        $faker = Faker::create('id_ID');
+
         foreach ($siswa as $item) {
-            //
+            $nilai_tugas = $faker->numberBetween(0, 100);
+            $nilai_absensi = $faker->numberBetween(0, 100);
+            $nilai_uts = $faker->numberBetween(0, 100);
+            $nilai_uas = $faker->numberBetween(0, 100);
+            $nilai_ratarata = $faker->numberBetween(0, 100);
+
+            switch ($nilai_ratarata) {
+                case $nilai_ratarata <= 50:
+                    $nilai_keterangan = "Terampil memahami dan terampil dalam melakukan proses pembelajaran.";
+                    break;
+                case $nilai_ratarata >= 51 && $nilai_ratarata <= 70:
+                    $nilai_keterangan = "Cukup memahami dan cukup terampil dalam melakukan proses pembelajaran.";
+                    break;
+                case $nilai_ratarata >= 71:
+                    $nilai_keterangan = "Sangat memahami dan sangat terampil dalam melakukan proses pembelajaran.";
+                    break;
+            }
+            foreach ($matapelajaran as $items) {
+                $save_nilai = $nilai->create([
+                    "nilai_siswa_tugas" => $nilai_tugas,
+                    "nilai_siswa_absensi" => $nilai_absensi,
+                    "nilai_siswa_uts" => $nilai_uts,
+                    "nilai_siswa_uas" => $nilai_uas,
+                    "nilai_ratarata" => $nilai_ratarata,
+                    "nilai_keterangan" => $nilai_keterangan,
+                    "nilai_tanggal" => now(),
+                    "matapelajaran_id" => $items->id,
+                    "siswa_id" => $item->id,
+                    "created_at" => now(),
+                    "updated_at" => now(),
+                ]);
+                $save_nilai->save();
+                dump($save_nilai);
+                die;
+            }
         }
     }
 

@@ -43,3 +43,4 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
 Route::get('/generate', [GenerateController::class, 'generate_all'])->name('generate-all');
 Route::get('/generate-siswa', [GenerateController::class, 'generate_siswa'])->name('generate-siswa');
 Route::get('/generate-guru', [GenerateController::class, 'generate_guru'])->name('generate-guru');
+Route::get('/generate-nilai', [GenerateController::class, 'generate_nilai'])->name('generate-nilai');
