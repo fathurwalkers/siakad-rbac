@@ -84,7 +84,7 @@ class GenerateController extends Controller
             ]);
             $save_siswa->save();
         }
-        return redirect()->route('daftar-siswa')->with('status', 'Berhasil melakukan Auto Generate Data Siswa.');
+        // return redirect()->route('daftar-siswa')->with('status', 'Berhasil melakukan Auto Generate Data Siswa.');
     }
 
     public function generate_guru()
@@ -159,7 +159,7 @@ class GenerateController extends Controller
             ]);
             $save_guru->save();
         }
-        return redirect()->route('daftar-guru')->with('status', 'Berhasil Auto Generate Data Guru.');
+        // return redirect()->route('daftar-guru')->with('status', 'Berhasil Auto Generate Data Guru.');
     }
 
     public function generate_nilai()
