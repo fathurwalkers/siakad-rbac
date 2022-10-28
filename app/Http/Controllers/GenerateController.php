@@ -202,8 +202,6 @@ class GenerateController extends Controller
                     "updated_at" => now(),
                 ]);
                 $save_nilai->save();
-                dump($save_nilai);
-                die;
             }
         }
     }
