@@ -34,4 +34,17 @@ class NilaiController extends Controller
             'matapelajaran' => $matapelajaran,
         ]);
     }
+
+    public function lihat_nilai($id)
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $siswa = Siswa::find($id);
+        $nilai = Nilai::where('siswa_id', $siswa->id)->get();
+        return view('dashboard.lihat-nilai', [
+            'users' => $users,
+            'siswa' => $siswa,
+            'nilai' => $nilai,
+        ]);
+    }
 }
