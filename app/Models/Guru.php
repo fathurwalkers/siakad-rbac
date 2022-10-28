@@ -17,10 +17,10 @@ class Guru extends Model
     protected $guarded = [];
     protected $primaryKey = "id";
 
-    public function nilai()
-    {
-        return $this->hasMany(Nilai::class);
-    }
+    // public function nilai()
+    // {
+    //     return $this->hasMany(Nilai::class);
+    // }
 
     public function semester()
     {

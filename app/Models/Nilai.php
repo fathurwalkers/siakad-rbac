@@ -20,10 +20,10 @@ class Nilai extends Model
         return $this->belongsTo(Siswa::class);
     }
 
-    public function guru()
-    {
-        return $this->belongsTo(Guru::class);
-    }
+    // public function guru()
+    // {
+    //     return $this->belongsTo(Guru::class);
+    // }
 
     public function matapelajaran()
     {
