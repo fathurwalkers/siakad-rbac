@@ -164,7 +164,6 @@ class GenerateController extends Controller
 
     public function generate_nilai()
     {
-        $nilai = new Nilai;
         $siswa = Siswa::all();
         $matapelajaran = Matapelajaran::all();
         $faker = Faker::create('id_ID');
@@ -188,6 +187,7 @@ class GenerateController extends Controller
                     break;
             }
             foreach ($matapelajaran as $items) {
+                $nilai = new Nilai;
                 $save_nilai = $nilai->create([
                     "nilai_siswa_tugas" => $nilai_tugas,
                     "nilai_siswa_absensi" => $nilai_absensi,
