@@ -17,7 +17,7 @@ class CreateAbsensisTable extends Migration
 
             $table->unsignedBigInteger('login_id')->nullable();
 
-            $table->foreign('login_id')->references('id')->on('login');
+            $table->foreign('login_id')->references('id')->on('login')->onDelete('cascade');
 
             $table->timestamps();
         });
