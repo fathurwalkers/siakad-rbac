@@ -29,4 +29,21 @@ class SiswaController extends Controller
             'siswa' => $siswa
         ]);
     }
+
+    public function hapus_siswa(Request $request, $id)
+    {
+        $siswa_id = $id;
+        $siswa = Siswa::find($siswa_id);
+        $siswa_nama = $siswa->siswa_nama;
+        $login = Login::find($siswa->login_id);
+        $siswa_hapus = $siswa->forceDelete();
+        $login_hapus = $login->forceDelete();
+        if ($siswa_hapus == true) {
+            $alert = "Data Siswa " . $siswa_nama . " telah berhasil dihapus.";
+            return redirect()->route('daftar-siswa')->with('status', $alert);
+        } else {
+            $alert = "Data Siswa " . $siswa_nama . " gagal dihapus.";
+            return redirect()->route('daftar-siswa')->with('status', $alert);
+        }
+    }
 }
