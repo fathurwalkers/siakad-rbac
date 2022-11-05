@@ -11,7 +11,7 @@ use App\Http\Controllers\NilaiController;
 use App\Models\Matapelajaran;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/dashboard');
 });
 
 Route::get('/login', [BackController::class, 'login_siswa'])->name('login-siswa');
