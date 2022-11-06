@@ -32,6 +32,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
 
     // GURU ROUTE
     Route::get('/guru/daftar-guru', [GuruController::class, 'daftar_guru'])->name('daftar-guru');
+    Route::post('/guru/tambah-guru', [GuruController::class, 'tambah_guru'])->name('tambah-guru');
     Route::post('/guru/hapus-guru/{id}', [GuruController::class, 'hapus_guru'])->name('hapus-guru');
     Route::post('/guru/post-ubah-guru/{id}', [GuruController::class, 'post_ubah_guru'])->name('post-ubah-guru');
 

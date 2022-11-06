@@ -24,9 +24,15 @@ class GuruController extends Controller
         $session_users = session('data_login');
         $users = Login::find($session_users->id);
         $guru = Guru::all();
+        $kelas = Kelas::all();
+        $semester = Semester::all();
+        $matapelajaran = Matapelajaran::all();
         return view('dashboard.daftar-guru', [
             'users' => $users,
-            'guru' => $guru
+            'guru' => $guru,
+            'kelas' => $kelas,
+            'semester' => $semester,
+            'matapelajaran' => $matapelajaran,
         ]);
     }
 
@@ -73,5 +79,81 @@ class GuruController extends Controller
             $alert = "Data Guru " . $guru_nama . " gagal diubah.";
             return redirect()->route('daftar-guru')->with('status', $alert);
         }
+    }
+
+    public function tambah_guru(Request $request)
+    {
+        $faker                  = Faker::create('id_ID');
+        $guru = new Guru;
+        $gambar_cek = $request->file('foto');
+        if (!$gambar_cek) {
+            $gambar = "null;";
+        } else {
+            $randomNamaGambar = Str::random(10) . '.jpg';
+            $gambar = $request->file('foto')->move(public_path('foto'), strtolower($randomNamaGambar));
+        }
+
+        $guru_nama = $request->guru_nama;
+        $guru_nip = $request->guru_nip;
+        $guru_telepon = $request->guru_telepon;
+        $guru_alamat = $request->guru_alamat;
+        $guru_jeniskelamin = $request->guru_jeniskelamin;
+        $guru_status = "AKTIF";
+        $guru_kode = strtoupper(Str::random(10));
+
+        $kelas_id = $request->kelas_id;
+        $matapelajaran_id = $request->matapelajaran_id;
+        $semester_id = $request->semester_id;
+
+        $kelas = Kelas::find($kelas_id);
+        $matapelajaran = Matapelajaran::find($matapelajaran_id);
+        $semester = Semester::find($semester_id);
+
+        // GENERATE DATA LOGIN
+        $login = new Login;
+        $token = Str::random(16);
+        $level = "user";
+        $hashPassword = Hash::make('12345', [
+            'rounds' => 12,
+        ]);
+        $hashToken = Hash::make($token, [
+            'rounds' => 12,
+        ]);
+        $username = strtolower(Str::random(10));
+        $save_login = $login->create([
+            'login_nama'        => $guru_nama,
+            'login_username'    => $username,
+            'login_password'    => $hashPassword,
+            'login_email'       => $faker->email(),
+            'login_telepon'     => $guru_telepon,
+            'login_token'       => $hashToken,
+            'login_level'       => $level,
+            'login_status'      => "verified",
+            'created_at'        => now(),
+            'updated_at'        => now()
+        ]);
+        $save_login->save();
+
+        $login_id = $save_login->id;
+
+        // GENERATE DATA guru
+        $save_guru = $guru->create([
+            'guru_nama' => $guru_nama,
+            'guru_nip' => $guru_nip,
+            'guru_jeniskelamin' => $guru_jeniskelamin,
+            'guru_alamat' => $guru_alamat,
+            'guru_telepon' => $guru_telepon,
+            'guru_foto' => $gambar->getFileName(),
+            'guru_status' => $guru_status,
+            'guru_kode' => $guru_kode,
+            'login_id' => $save_login->id,
+            'semester_id' => $semester->id,
+            'kelas_id' => $kelas->id,
+            'matapelajaran_id' => $matapelajaran->id,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $save_guru->save();
+        return redirect()->route('daftar-guru')->with('status', 'Berhasil Menambah Data Guru.');
     }
 }
