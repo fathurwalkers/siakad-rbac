@@ -27,6 +27,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     // SISWA ROUTE
     Route::get('/siswa/daftar-siswa', [SiswaController::class, 'daftar_siswa'])->name('daftar-siswa');
     Route::post('/siswa/hapus-siswa/{id}', [SiswaController::class, 'hapus_siswa'])->name('hapus-siswa');
+    Route::post('/siswa/post-ubah-siswa/{id}', [SiswaController::class, 'post_ubah_siswa'])->name('post-ubah-siswa');
 
     // GURU ROUTE
     Route::get('/guru/daftar-guru', [GuruController::class, 'daftar_guru'])->name('daftar-guru');
