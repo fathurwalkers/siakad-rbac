@@ -31,4 +31,18 @@ class KelasController extends Controller
             'kelas' => $kelas,
         ]);
     }
+
+    public function lihat_kelas($id)
+    {
+        $kelas_id = $id;
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $kelas = Kelas::find($kelas_id);
+        $siswa = Siswa::where('kelas_id', $kelas->id)->get();
+        return view('dashboard.lihat-kelas', [
+            'users' => $users,
+            'kelas' => $kelas,
+            'siswa' => $siswa,
+        ]);
+    }
 }

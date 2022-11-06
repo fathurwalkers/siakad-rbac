@@ -1,12 +1,12 @@
 @extends('layouts.dashboard-layout')
 
-@section('title', 'Dashboard - Daftar Guru')
+@section('title', 'Dashboard - Daftar Siswa')
 
 @push('css')
     <link href="{{ asset('datatables') }}/datatables.min.css" rel="stylesheet">
 @endpush
 
-@section('content-title', 'Dashboard - Daftar Guru')
+@section('content-title', 'Dashboard - Daftar Siswa')
 
 {{-- ------------------- main content ------------------- --}}
 @section('main-content')
@@ -29,7 +29,7 @@
                         <div class="row">
                             <h4>
                                 <b>
-                                    Daftar Guru
+                                    Daftar Siswa - {{ $kelas->kelas_nama }}
                                 </b>
                             </h4>
                         </div>
@@ -41,22 +41,22 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Nama</th>
-                                            <th>NIP</th>
+                                            <th>NISN</th>
                                             <th>Jenis Kelamin</th>
                                             <th>No. Telepon</th>
-                                            <th>Mata Pelajaran</th>
+                                            <th>Status</th>
                                             <th>Kelas</th>
                                             <th>Kelola</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($guru as $item)
+                                        @foreach ($siswa as $item)
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                                <td>{{ $item->guru_nama }}</td>
-                                                <td>{{ $item->guru_nip }}</td>
+                                                <td>{{ $item->siswa_nama }}</td>
+                                                <td>{{ $item->siswa_nisn }}</td>
                                                 <td>
-                                                    @switch($item->guru_jeniskelamin)
+                                                    @switch($item->siswa_jeniskelamin)
                                                         @case("L")
                                                             Laki - Laki
                                                             @break
@@ -65,8 +65,8 @@
                                                             @break
                                                     @endswitch
                                                 </td>
-                                                <td>{{ $item->guru_telepon }}</td>
-                                                <td>{{ $item->matapelajaran->matapelajaran_nama }}</td>
+                                                <td>{{ $item->siswa_telepon }}</td>
+                                                <td>{{ $item->siswa_status }}</td>
                                                 <td>{{ $item->kelas->kelas_nama }}</td>
                                                 <td>
                                                     <div class="row">
@@ -86,7 +86,6 @@
                                                 </td>
                                             </tr>
 
-
                                             {{-- MODAL HAPUS --}}
                                             <div class="modal fade" id="modalhpus{{ $item->id }}"
                                                 tabindex="-1" role="dialog"
@@ -104,12 +103,12 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <p>Apakah anda yakin ingin menghapus Data Siswa
-                                                                {{ $item->guru_nama }} ?
+                                                                {{ $item->siswa_nama }} ?
                                                             </p>
                                                         </div>
                                                         <div class="modal-footer">
 
-                                                            <form action="{{ route('hapus-guru', $item->id) }}"
+                                                            <form action="{{ route('hapus-siswa', $item->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 <input type="hidden" name="logoutrequest">
@@ -140,7 +139,7 @@
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
-                                                        <form action="{{ route('post-ubah-guru', $item->id) }}"
+                                                        <form action="{{ route('post-ubah-siswa', $item->id) }}"
                                                             method="POST">
                                                             @csrf
                                                             <div class="modal-body">
@@ -148,25 +147,25 @@
                                                                 <div class="row">
                                                                     <div class="col-sm-6 col-md-6 col-lg-6">
                                                                         <div class="form-group">
-                                                                            <label for="guru_nama">Nama</label>
+                                                                            <label for="siswa_nama">Nama</label>
                                                                             <input type="text"
                                                                                 class="form-control"
-                                                                                id="guru_nama"
+                                                                                id="siswa_nama"
                                                                                 aria-describedby="emailHelp"
-                                                                                name="guru_nama"
-                                                                                value="{{ $item->guru_nama }}">
+                                                                                name="siswa_nama"
+                                                                                value="{{ $item->siswa_nama }}">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-sm-6 col-md-6 col-lg-6">
                                                                         <div class="form-group">
-                                                                            <label for="guru_telepon">No.
+                                                                            <label for="siswa_telepon">No.
                                                                                 Telepon</label>
                                                                             <input type="text"
                                                                                 class="form-control"
-                                                                                id="guru_telepon"
+                                                                                id="siswa_telepon"
                                                                                 aria-describedby="emailHelp"
-                                                                                name="guru_telepon"
-                                                                                value="{{ $item->guru_telepon }}">
+                                                                                name="siswa_telepon"
+                                                                                value="{{ $item->siswa_telepon }}">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -192,7 +191,7 @@
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="exampleModalLabelLogout">
-                                                                Data Siswa - {{ $item->guru_nama }}
+                                                                Data Siswa - {{ $item->siswa_nama }}
                                                             </h5>
                                                             <button type="button" class="close"
                                                                 data-dismiss="modal" aria-label="Close">
@@ -202,18 +201,18 @@
                                                         <div class="modal-body">
                                                             <div class="row border-1">
                                                                 <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                                                    <img src="{{ asset('assets') }}/{{ $item->guru_foto }}" alt="" width="150px">
+                                                                    <img src="{{ asset('assets') }}/{{ $item->siswa_foto }}" alt="" width="150px">
                                                                 </div>
                                                             </div>
                                                             <br />
                                                             <div class="row">
                                                                 <div class="col-sm-12 col-md-12 col-lg-12">
                                                                     <p>
-                                                                        Nama : {{ $item->guru_nama }} <br>
-                                                                        NIP : {{ $item->guru_nip }} <br>
+                                                                        Nama : {{ $item->siswa_nama }} <br>
+                                                                        NISN : {{ $item->siswa_nisn }} <br>
                                                                         Kelas : {{ $item->kelas->kelas_nama }} <br>
                                                                         Jenis Kelamin :
-                                                                        @switch($item->guru_jeniskelamin)
+                                                                        @switch($item->siswa_jeniskelamin)
                                                                             @case("L")
                                                                                 Laki - Laki
                                                                                 @break
@@ -221,8 +220,8 @@
                                                                                 Perempuan
                                                                                 @break
                                                                         @endswitch <br>
-                                                                        No. HP / Telepon : {{ $item->guru_telepon }} <br>
-                                                                        Alamat : {{ $item->guru_alamat }} <br>
+                                                                        No. HP / Telepon : {{ $item->siswa_telepon }} <br>
+                                                                        Alamat : {{ $item->siswa_alamat }} <br>
                                                                     </p>
                                                                 </div>
                                                             </div>

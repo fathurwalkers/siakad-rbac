@@ -31,9 +31,12 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
 
     // GURU ROUTE
     Route::get('/guru/daftar-guru', [GuruController::class, 'daftar_guru'])->name('daftar-guru');
+    Route::post('/guru/hapus-guru/{id}', [GuruController::class, 'hapus_guru'])->name('hapus-guru');
+    Route::post('/guru/post-ubah-guru/{id}', [GuruController::class, 'post_ubah_guru'])->name('post-ubah-guru');
 
     // KELAS ROUTE
     Route::get('/kelas/daftar-kelas', [KelasController::class, 'daftar_kelas'])->name('daftar-kelas');
+    Route::get('/kelas/lihat-kelas/{id}', [KelasController::class, 'lihat_kelas'])->name('lihat-kelas');
 
     // NILAI ROUTE
     Route::get('/nilai/daftar-nilai', [NilaiController::class, 'daftar_nilai'])->name('daftar-nilai');

@@ -55,10 +55,10 @@
                                                     <div class="row">
                                                         <div
                                                             class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                                            <button href="#"
+                                                            <button onclick="location.href = '{{ route('lihat-kelas', $item->id) }}';"
                                                                 class="btn btn-sm btn-primary mr-1">Lihat Kelas</button>
-                                                            <button href="#" class="btn btn-sm btn-success mr-1">Ubah</button>
-                                                            <button href="#" class="btn btn-sm btn-danger">Hapus</button>
+                                                            {{-- <button href="#" class="btn btn-sm btn-success mr-1">Ubah</button>
+                                                            <button href="#" class="btn btn-sm btn-danger">Hapus</button> --}}
                                                         </div>
                                                     </div>
                                                 </td>

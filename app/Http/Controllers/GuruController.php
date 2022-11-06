@@ -29,4 +29,49 @@ class GuruController extends Controller
             'guru' => $guru
         ]);
     }
+
+    public function hapus_guru(Request $request, $id)
+    {
+        $guru_id = $id;
+        $guru = Guru::find($guru_id);
+        $guru_nama = $guru->guru_nama;
+        $login = Login::find($guru->login_id);
+        $guru_hapus = $guru->forceDelete();
+        $login_hapus = $login->forceDelete();
+        if ($guru_hapus == true) {
+            $alert = "Data Guru " . $guru_nama . " telah berhasil dihapus.";
+            return redirect()->route('daftar-guru')->with('status', $alert);
+        } else {
+            $alert = "Data Guru " . $guru_nama . " gagal dihapus.";
+            return redirect()->route('daftar-guru')->with('status', $alert);
+        }
+    }
+
+    public function post_ubah_guru(Request $request, $id)
+    {
+        $guru_id = $id;
+        $guru_nama = $request->guru_nama;
+        $guru_telepon = $request->guru_telepon;
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $guru = Guru::find($guru_id);
+        $guru_login = Login::find($guru->login_id);
+        $guru_login_update = $guru_login->update([
+            'login_nama' => $guru_nama,
+            'login_telepon' => $guru_telepon,
+            'updated_at' => now()
+        ]);
+        $guru_update = $guru->update([
+            'guru_nama' => $guru_nama,
+            'guru_telepon' => $guru_telepon,
+            'updated_at' => now()
+        ]);
+        if ($guru_update == true) {
+            $alert = "Data Guru " . $guru_nama . " telah berhasil diubah.";
+            return redirect()->route('daftar-guru')->with('status', $alert);
+        } else {
+            $alert = "Data Guru " . $guru_nama . " gagal diubah.";
+            return redirect()->route('daftar-guru')->with('status', $alert);
+        }
+    }
 }
