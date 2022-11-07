@@ -12,6 +12,7 @@ class CreateAbsensisTable extends Migration
             $table->id();
 
             $table->string('absensi_matapelajaran');
+            $table->string('absensi_status');
             $table->time('absensi_waktu');
             $table->date('absensi_tanggal');
 
