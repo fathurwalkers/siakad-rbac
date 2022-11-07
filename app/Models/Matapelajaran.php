@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Nilai;
 use App\Models\Guru;
+use App\Models\Absensi;
 
 class Matapelajaran extends Model
 {
@@ -22,5 +23,10 @@ class Matapelajaran extends Model
     public function guru()
     {
         return $this->hasMany(Guru::class);
+    }
+
+    public function absen()
+    {
+        return $this->hasMany(Absensi::class);
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Login;
 use App\Models\Kelas;
 use App\Models\Nilai;
+use App\Models\Absensi;
 
 class Siswa extends Model
 {
@@ -18,6 +19,11 @@ class Siswa extends Model
     public function nilai()
     {
         return $this->hasMany(Nilai::class);
+    }
+
+    public function absen()
+    {
+        return $this->hasMany(Absensi::class);
     }
 
     public function kelas()

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Login;
+use App\Models\Siswa;
 
 class Absensi extends Model
 {
@@ -13,8 +13,13 @@ class Absensi extends Model
     protected $guarded = [];
     protected $primaryKey = "id";
 
-    public function login()
+    public function siswa()
     {
-        return $this->belongsTo(Login::class);
+        return $this->belongsTo(Siswa::class);
+    }
+
+    public function matapelajaran()
+    {
+        return $this->belongsTo(Matapelajaran::class);
     }
 }

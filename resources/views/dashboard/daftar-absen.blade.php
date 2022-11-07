@@ -42,16 +42,18 @@
                                             <th>No.</th>
                                             <th>Nama Siswa</th>
                                             <th>Kelas</th>
+                                            <th>Kelas</th>
                                             {{-- <th>Kelola</th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($siswa as $item)
+                                        @foreach ($absen as $item)
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration }}</td>
 
-                                                <td>{{ $item->siswa_nama }}</td>
-                                                <td>{{ $item->kelas->kelas_nama }}</td>
+                                                <td>{{ $item->siswa->siswa_nama }}</td>
+                                                <td>{{ $item->matapelajaran->matapelajaran_nama }}</td>
+                                                <td>{{ $item->absen_status }}</td>
 
                                                 {{-- <td>
                                                     <div class="row">

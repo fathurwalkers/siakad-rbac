@@ -80,6 +80,21 @@
             </div>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm24"
+                aria-expanded="true" aria-controls="collapseForm24">
+                <i class="fab fa-fw fa-wpforms"></i>
+                <span>Kelola Absen</span>
+            </a>
+            <div id="collapseForm24" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Manajemen Absen</h6>
+                    <a class="collapse-item" href="{{ route('daftar-absen') }}">Daftar Absen</a>
+                    {{-- <a class="collapse-item" href="#">Kelola Absen</a> --}}
+                </div>
+            </div>
+        </li>
+
         {{-- <li class="nav-item">
             <a class="nav-link" href="ui-colors.html">
                 <i class="fas fa-fw fa-palette"></i>
