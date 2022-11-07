@@ -15,9 +15,11 @@ class CreateAbsensisTable extends Migration
             $table->time('absensi_waktu');
             $table->date('absensi_tanggal');
 
-            $table->unsignedBigInteger('login_id')->nullable();
+            $table->unsignedBigInteger('siswa_id')->nullable();
+            $table->unsignedBigInteger('matapelajaran_id')->nullable();
 
-            $table->foreign('login_id')->references('id')->on('login')->onDelete('cascade');
+            $table->foreign('siswa_id')->references('id')->on('siswa')->onDelete('cascade');
+            $table->foreign('matapelajaran_id')->references('id')->on('matapelajaran')->onDelete('cascade');
 
             $table->timestamps();
         });
