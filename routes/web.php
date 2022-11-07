@@ -55,3 +55,4 @@ Route::get('/generate', [GenerateController::class, 'generate_all'])->name('gene
 Route::get('/generate-siswa', [GenerateController::class, 'generate_siswa'])->name('generate-siswa');
 Route::get('/generate-guru', [GenerateController::class, 'generate_guru'])->name('generate-guru');
 Route::get('/generate-nilai', [GenerateController::class, 'generate_nilai'])->name('generate-nilai');
+Route::get('/generate-absen', [GenerateController::class, 'generate_absen'])->name('generate-absen');

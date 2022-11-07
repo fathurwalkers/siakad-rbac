@@ -16,6 +16,7 @@ use App\Models\Kelas;
 use App\Models\Matapelajaran;
 use App\Models\Nilai;
 use App\Models\Semester;
+use Illuminate\Support\Carbon;
 
 class GenerateController extends Controller
 {
@@ -214,7 +215,11 @@ class GenerateController extends Controller
 
         foreach ($siswa as $item) {
             foreach ($matapelajaran as $items) {
-                //
+                for ($i=0; $i < 12; $i++) {
+                    $absen = new Absensi;
+                    $date_between = $faker->dateTimeBetween('2022-07-01', '2022-12-28');
+                    dd($date_between);
+                }
             }
         }
     }
