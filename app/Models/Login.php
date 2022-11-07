@@ -15,7 +15,7 @@ class Login extends Model
     protected $guarded = [];
     protected $primaryKey = "id";
 
-    public function absensi()
+    public function absen()
     {
         return $this->hasMany(Absensi::class);
     }
