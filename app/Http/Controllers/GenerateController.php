@@ -206,6 +206,19 @@ class GenerateController extends Controller
         }
     }
 
+    public function generate_absen()
+    {
+        $siswa = Siswa::all();
+        $matapelajaran = Matapelajaran::all();
+        $faker = Faker::create('id_ID');
+
+        foreach ($siswa as $item) {
+            foreach ($matapelajaran as $items) {
+                //
+            }
+        }
+    }
+
     public function generate_all()
     {
         $this->generate_siswa();
