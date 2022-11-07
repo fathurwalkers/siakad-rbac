@@ -240,6 +240,7 @@ class GenerateController extends Controller
     {
         $this->generate_siswa();
         $this->generate_guru();
+        $this->generate_absen();
         return redirect()->route('dashboard')->with('status', 'Berhasil melakukan Auto Generate Data.');
     }
 }
