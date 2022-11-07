@@ -11,10 +11,10 @@ class CreateAbsensisTable extends Migration
         Schema::create('absensi', function (Blueprint $table) {
             $table->id();
 
-            $table->string('absensi_matapelajaran');
-            $table->string('absensi_status');
-            $table->time('absensi_waktu');
-            $table->date('absensi_tanggal');
+            $table->string('absen_matapelajaran');
+            $table->string('absen_status');
+            $table->time('absen_waktu');
+            $table->date('absen_tanggal');
 
             $table->unsignedBigInteger('siswa_id')->nullable();
             $table->unsignedBigInteger('matapelajaran_id')->nullable();

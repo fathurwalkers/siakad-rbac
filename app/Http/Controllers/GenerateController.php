@@ -218,10 +218,22 @@ class GenerateController extends Controller
                 for ($i=0; $i < 12; $i++) {
                     $absen = new Absensi;
                     $date_between = $faker->dateTimeBetween('2022-07-01', '2022-12-28');
-                    dd($date_between);
+                    $save_absen = $absen->create([
+                        'absen_matapelajaran' => $items->matapelajaran_nama,
+                        'absen_status' => "HADIR",
+                        'absen_waktu' => $date_between,
+                        'absen_tanggal' => $date_between,
+                        'siswa_id' => $item->id,
+                        'matapelajaran_id' => $items->id,
+                        'created_at' => now(),
+                        'updated_at' => now()
+                    ]);
+                    $save_absen->save();
                 }
             }
         }
+        $absen_all = Absensi::all();
+        dd($absen_all);
     }
 
     public function generate_all()
