@@ -41,8 +41,8 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Nama Siswa</th>
-                                            <th>Kelas</th>
-                                            <th>Kelas</th>
+                                            <th>Mata Pelajaran</th>
+                                            <th>Status Absen</th>
                                             {{-- <th>Kelola</th> --}}
                                         </tr>
                                     </thead>
