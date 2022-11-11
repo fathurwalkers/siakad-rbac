@@ -24,15 +24,38 @@ class NilaiController extends Controller
     {
         $session_users = session('data_login');
         $users = Login::find($session_users->id);
-        $nilai = Nilai::all();
-        $siswa = Siswa::all();
-        $matapelajaran = Matapelajaran::all();
-        return view('dashboard.daftar-nilai', [
-            'users' => $users,
-            'nilai' => $nilai,
-            'siswa' => $siswa,
-            'matapelajaran' => $matapelajaran,
-        ]);
+        switch ($users->login_level) {
+            case 'admin':
+                $nilai = Nilai::all();
+                $siswa = Siswa::all();
+                $matapelajaran = Matapelajaran::all();
+                return view('dashboard.daftar-nilai', [
+                    'users' => $users,
+                    'nilai' => $nilai,
+                    'siswa' => $siswa,
+                    'matapelajaran' => $matapelajaran,
+                ]);
+                break;
+            case 'guru':
+                $guru = Guru::where('login_id', $users->id)->first();
+                $kelas = Kelas::find($guru->kelas_id);
+                $siswa = Siswa::where('kelas_id', $kelas->id)->get();
+                $nilai = Nilai::all();
+                $matapelajaran = Matapelajaran::all();
+                return view('dashboard.daftar-nilai', [
+                    'users' => $users,
+                    'nilai' => $nilai,
+                    'siswa' => $siswa,
+                    'matapelajaran' => $matapelajaran,
+                ]);
+                break;
+            case 'user':
+                $siswa = Siswa::where('login_id', $users->id)->first();
+                $nilai = Nilai::all();
+                $matapelajaran = Matapelajaran::all();
+                return redirect()->route('lihat-nilai', $siswa->id);
+                break;
+        }
     }
 
     public function lihat_nilai($id)

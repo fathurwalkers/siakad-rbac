@@ -69,6 +69,8 @@
                                                 <td>{{ $item->siswa_status }}</td>
                                                 <td>{{ $item->kelas->kelas_nama }}</td>
                                                 <td>
+
+                                                    @if($users->login_level == "admin")
                                                     <div class="row">
                                                         <div
                                                             class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
@@ -83,6 +85,7 @@
                                                             class="btn btn-sm btn-danger">Hapus</button>
                                                         </div>
                                                     </div>
+                                                    @endif
                                                 </td>
                                             </tr>
 

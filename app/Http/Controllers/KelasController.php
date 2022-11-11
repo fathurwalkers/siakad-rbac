@@ -24,12 +24,30 @@ class KelasController extends Controller
     {
         $session_users = session('data_login');
         $users = Login::find($session_users->id);
-        $kelas = Kelas::all();
-        $siswa = Siswa::all();
-        return view('dashboard.daftar-kelas', [
-            'users' => $users,
-            'kelas' => $kelas,
-        ]);
+        switch ($users->login_level) {
+            case 'admin':
+                $kelas = Kelas::all();
+                $siswa = Siswa::all();
+                return view('dashboard.daftar-kelas', [
+                    'users' => $users,
+                    'kelas' => $kelas,
+                ]);
+                break;
+            case 'guru':
+                $kelas = Kelas::all();
+                $siswa = Siswa::all();
+                return view('dashboard.daftar-kelas', [
+                    'users' => $users,
+                    'kelas' => $kelas,
+                ]);
+                break;
+            case 'user':
+                $siswa = Siswa::where('login_id', $users->id)->first();
+                $kelas = Kelas::find($siswa->kelas_id);
+                // dd($siswa);
+                return redirect()->route('lihat-kelas', $kelas->id);
+                break;
+        }
     }
 
     public function lihat_kelas($id)

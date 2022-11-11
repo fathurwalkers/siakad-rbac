@@ -31,9 +31,18 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">LOGIN <br>SIAKAD SMP 17</h1>
                                     </div>
+                                    <div class="row mt-1 mb-1">
+                                        <div class="col-sm-12 col-md-12 col-lg-12">
+                                            @if (session('status'))
+                                                <div class="alert alert-success">
+                                                    {{ session('status') }}
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
                                     <form class="user" action="{{ route('post-login') }}" method="POST">
                                         @csrf
-                                        <input type="hidden" name="cekrequest" value="siswa">
+                                        <input type="hidden" name="cekrequest" value="umum">
                                         <div class="form-group">
                                             <input type="text" name="login_username" class="form-control"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"

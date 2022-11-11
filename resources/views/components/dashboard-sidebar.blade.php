@@ -104,6 +104,8 @@
         <!-- ----------------------- END MENU KELOLA ----------------------- -->
 
         <!-- ----------------------- KELOLA LAINNYA ----------------------- -->
+
+        @if ($users->login_level == "admin")
         <hr class="sidebar-divider">
         <div class="sidebar-heading">
             Menu Lainnya
@@ -123,6 +125,8 @@
                 </div>
             </div>
         </li>
+        @endif
+
         {{-- <li class="nav-item">
             <a class="nav-link" href="charts.html">
                 <i class="fas fa-fw fa-chart-area"></i>

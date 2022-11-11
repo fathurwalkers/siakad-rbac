@@ -15,7 +15,7 @@ Route::get('/', function () {
     return redirect('/dashboard');
 });
 
-Route::get('/login', [BackController::class, 'login_siswa'])->name('login-siswa');
+Route::get('/login', [BackController::class, 'login_siswa'])->name('login');
 Route::get('/login-admin', [BackController::class, 'login_admin'])->name('login-admin');
 
 Route::post('/proses-login', [BackController::class, 'post_login'])->name('post-login');
@@ -56,7 +56,14 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
 });
 
 Route::get('/generate', [GenerateController::class, 'generate_all'])->name('generate-all');
+
 Route::get('/generate-siswa', [GenerateController::class, 'generate_siswa'])->name('generate-siswa');
+Route::get('/generate-default-siswa', [GenerateController::class, 'generate_default_siswa'])->name('generate-default-siswa');
+Route::get('/generate-siswa-perkelas', [GenerateController::class, 'generate_siswa_perkelas'])->name('generate-siswa-perkelas');
+
 Route::get('/generate-guru', [GenerateController::class, 'generate_guru'])->name('generate-guru');
+Route::get('/generate-default-guru', [GenerateController::class, 'generate_default_guru'])->name('generate-default-guru');
+
 Route::get('/generate-nilai', [GenerateController::class, 'generate_nilai'])->name('generate-nilai');
+
 Route::get('/generate-absen', [GenerateController::class, 'generate_absen'])->name('generate-absen');

@@ -35,8 +35,8 @@
                                 </h4>
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-6 d-flex justify-content-end">
-                                <button type="button" class="btn btn-md btn-info" data-toggle="modal"
-                                    data-target="#modaltambah">
+                                <button class="btn btn-md btn-info" @if($users->login_level == "admin") type="button" data-toggle="modal"
+                                    data-target="#modaltambah" @endif>
                                     Tambah Mata Pelajaran
                                 </button>
                             </div>
@@ -89,7 +89,9 @@
                                             <th>No.</th>
                                             <th>Mata Pelajaran</th>
                                             <th>Kode Mata Pelajaran</th>
+                                            {{-- @if ($users->login_level == "admin") --}}
                                             <th>Kelola</th>
+                                            {{-- @endif --}}
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -104,10 +106,13 @@
                                                             class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
                                                             {{-- <button href="#"
                                                                 class="btn btn-sm btn-primary mr-1">Lihat</button> --}}
+
+                                                            @if ($users->login_level == "admin")
                                                             <button href="#"
                                                                 class="btn btn-sm btn-success mr-1" data-toggle="modal" data-target="#modalubah{{ $item->id }}">Ubah</button>
                                                             <button href="#" class="btn btn-sm btn-danger"
                                                                 data-toggle="modal" data-target="#modalhapus{{ $item->id }}">Hapus</button>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </td>

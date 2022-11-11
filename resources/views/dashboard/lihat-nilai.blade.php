@@ -59,7 +59,7 @@
                                             <th>UAS</th>
                                             <th>Rata - Rata</th>
                                             <th>Keterangan</th>
-                                            <th>Kelola</th>
+                                            {{-- <th>Kelola</th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -75,7 +75,7 @@
                                                 <td>{{ $item->nilai_ratarata }}</td>
                                                 <td>{{ $item->nilai_keterangan }}</td>
 
-                                                <td>
+                                                {{-- <td>
                                                     <div class="row">
                                                         <div
                                                             class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
@@ -83,7 +83,7 @@
                                                                 class="btn btn-sm btn-primary mr-1">Lihat Nilai</button>
                                                         </div>
                                                     </div>
-                                                </td>
+                                                </td> --}}
                                             </tr>
                                         @endforeach
                                     </tbody>
