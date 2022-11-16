@@ -66,6 +66,12 @@ class BackController extends Controller
                 $request->session()->flush();
                 return redirect()->route('login')->with('status', 'Anda telah logout!');
                 break;
+            case 'kepsek':
+                $users = session('data_login');
+                $request->session()->forget(['data_login']);
+                $request->session()->flush();
+                return redirect()->route('login')->with('status', 'Anda telah logout!');
+                break;
         }
     }
 
@@ -103,6 +109,18 @@ class BackController extends Controller
                 }
                 break;
             case 'guru':
+                if ($cek_request == "admin") {
+                    return redirect()->route('login-admin')->with('status', 'Maaf anda tidak dapat memasukkan akun user pada halaman administrator!');
+                }
+                $cek_password = Hash::check($request->login_password, $data_login->login_password);
+                if ($data_login) {
+                    if ($cek_password) {
+                        $users = session(['data_login' => $data_login]);
+                        return redirect()->route('dashboard')->with('status', 'Berhasil Login!');
+                    }
+                }
+                break;
+            case 'kepsek':
                 if ($cek_request == "admin") {
                     return redirect()->route('login-admin')->with('status', 'Maaf anda tidak dapat memasukkan akun user pada halaman administrator!');
                 }
