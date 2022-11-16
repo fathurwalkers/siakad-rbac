@@ -1,12 +1,12 @@
 @extends('layouts.dashboard-layout')
 
-@section('title', 'Dashboard - Daftar Absensi')
+@section('title', 'Dashboard - Daftar Siswa')
 
 @push('css')
     <link href="{{ asset('datatables') }}/datatables.min.css" rel="stylesheet">
 @endpush
 
-@section('content-title', 'Dashboard - Daftar Absensi')
+@section('content-title', 'Dashboard - Daftar Siswa')
 
 {{-- ------------------- main content ------------------- --}}
 @section('main-content')
@@ -29,7 +29,7 @@
                         <div class="row">
                             <h4>
                                 <b>
-                                    Daftar Absensi
+                                    Daftar Siswa - {{ $kelas->kelas_nama }}
                                 </b>
                             </h4>
                         </div>
@@ -40,29 +40,48 @@
                                     <thead class="thead-dark">
                                         <tr>
                                             <th>No.</th>
+                                            <th>Nama</th>
+                                            <th>NISN</th>
+                                            <th>Jenis Kelamin</th>
+                                            <th>No. Telepon</th>
+                                            <th>Status</th>
                                             <th>Kelas</th>
                                             <th>Kelola</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($kelas as $item)
+                                        @foreach ($siswa as $item)
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration }}</td>
-
-                                                <td>{{ $item->kelas_nama }}</td>
-
+                                                <td>{{ $item->siswa_nama }}</td>
+                                                <td>{{ $item->siswa_nisn }}</td>
                                                 <td>
+                                                    @switch($item->siswa_jeniskelamin)
+                                                        @case("L")
+                                                            Laki - Laki
+                                                            @break
+                                                        @case("P")
+                                                            Perempuan
+                                                            @break
+                                                    @endswitch
+                                                </td>
+                                                <td>{{ $item->siswa_telepon }}</td>
+                                                <td>{{ $item->siswa_status }}</td>
+                                                <td>{{ $item->kelas->kelas_nama }}</td>
+                                                <td>
+
+                                                    @if($users->login_level == "admin" || $users->login_level == "kepsek")
                                                     <div class="row">
                                                         <div
                                                             class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                                            <button onclick="location.href = '{{ route('lihat-absen-kelas', $item->id) }}';"
-                                                                class="btn btn-sm btn-primary mr-1">Lihat Absensi Kelas ini</button>
-                                                            {{-- <button href="#" class="btn btn-sm btn-success mr-1">Ubah</button>
-                                                            <button href="#" class="btn btn-sm btn-danger">Hapus</button> --}}
+                                                            <button onclick="location.href = '{{ route('lihat-absen-siswa', $item->id) }}';"
+                                                                class="btn btn-sm btn-primary mr-1">Cek Absensi</button>
                                                         </div>
                                                     </div>
+                                                    @endif
                                                 </td>
                                             </tr>
+
                                         @endforeach
                                     </tbody>
                                 </table>

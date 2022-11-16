@@ -23,8 +23,35 @@ class AbsenController extends Controller
     {
         $session_users = session('data_login');
         $users = Login::find($session_users->id);
-        $absen = Absensi::all();
+        $kelas = Kelas::all();
         return view('dashboard.daftar-absen', [
+            'users' => $users,
+            'kelas' => $kelas,
+        ]);
+    }
+
+    public function lihat_absen_kelas($id)
+    {
+        $kelas_id = $id;
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $kelas = Kelas::find($kelas_id);
+        $siswa = Siswa::where('kelas_id', $kelas->id)->get();
+        return view('dashboard.lihat-absen-kelas', [
+            'users' => $users,
+            'kelas' => $kelas,
+            'siswa' => $siswa,
+        ]);
+    }
+
+    public function lihat_absen_siswa($id)
+    {
+        $siswa_id = $id;
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $siswa = Siswa::find($siswa_id);
+        $absen = Absensi::where('siswa_id', $siswa->id)->get();
+        return view('dashboard.lihat-absen-siswa', [
             'users' => $users,
             'absen' => $absen,
         ]);

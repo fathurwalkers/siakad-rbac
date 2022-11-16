@@ -84,7 +84,7 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm24"
                 aria-expanded="true" aria-controls="collapseForm24">
                 <i class="fab fa-fw fa-wpforms"></i>
-                <span>Kelola Absen</span>
+                <span>Absensi</span>
             </a>
             <div id="collapseForm24" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">

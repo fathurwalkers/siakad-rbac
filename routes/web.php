@@ -45,8 +45,10 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     Route::get('/nilai/daftar-nilai', [NilaiController::class, 'daftar_nilai'])->name('daftar-nilai');
     Route::get('/nilai/lihat-nilai/{id}', [NilaiController::class, 'lihat_nilai'])->name('lihat-nilai');
 
-    // NILAI ROUTE
+    // ABSENSI ROUTE
     Route::get('/absen/daftar-absen', [AbsenController::class, 'daftar_absen'])->name('daftar-absen');
+    Route::get('/absen/lihat-absen-kelas/{id}', [AbsenController::class, 'lihat_absen_kelas'])->name('lihat-absen-kelas');
+    Route::get('/absen/lihat-absen-siswa/{id}', [AbsenController::class, 'lihat_absen_siswa'])->name('lihat-absen-siswa');
 
     // MATA PELAJARAN ROUTE
     Route::get('/matapelajaran/daftar-matapelajaran', [MatapelajaranController::class, 'daftar_matapelajaran'])->name('daftar-matapelajaran');
