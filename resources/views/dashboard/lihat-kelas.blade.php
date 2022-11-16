@@ -70,7 +70,7 @@
                                                 <td>{{ $item->kelas->kelas_nama }}</td>
                                                 <td>
 
-                                                    @if($users->login_level == "admin")
+                                                    @if($users->login_level == "admin" || $users->login_level == "kepsek")
                                                     <div class="row">
                                                         <div
                                                             class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">

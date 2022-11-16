@@ -35,7 +35,7 @@
                                 </h4>
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-6 d-flex justify-content-end">
-                                <button class="btn btn-md btn-info" @if($users->login_level == "admin") type="button" data-toggle="modal"
+                                <button class="btn btn-md btn-info" @if($users->login_level == "admin" || $users->login_level == "kepsek") type="button" data-toggle="modal"
                                     data-target="#modaltambah" @endif>
                                     Tambah Mata Pelajaran
                                 </button>
@@ -107,7 +107,7 @@
                                                             {{-- <button href="#"
                                                                 class="btn btn-sm btn-primary mr-1">Lihat</button> --}}
 
-                                                            @if ($users->login_level == "admin")
+                                                            @if ($users->login_level == "admin" || $users->login_level == "kepsek")
                                                             <button href="#"
                                                                 class="btn btn-sm btn-success mr-1" data-toggle="modal" data-target="#modalubah{{ $item->id }}">Ubah</button>
                                                             <button href="#" class="btn btn-sm btn-danger"

@@ -105,7 +105,7 @@
 
         <!-- ----------------------- KELOLA LAINNYA ----------------------- -->
 
-        @if ($users->login_level == "admin")
+        @if ($users->login_level == "admin" || $users->login_level == "kepsek")
         <hr class="sidebar-divider">
         <div class="sidebar-heading">
             Menu Lainnya
