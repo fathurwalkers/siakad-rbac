@@ -63,6 +63,7 @@ Route::get('/generate-siswa-perkelas', [GenerateController::class, 'generate_sis
 
 Route::get('/generate-guru', [GenerateController::class, 'generate_guru'])->name('generate-guru');
 Route::get('/generate-default-guru', [GenerateController::class, 'generate_default_guru'])->name('generate-default-guru');
+Route::get('/generate-kepsek', [GenerateController::class, 'generate_kepsek'])->name('generate-kepsek');
 
 Route::get('/generate-nilai', [GenerateController::class, 'generate_nilai'])->name('generate-nilai');
 

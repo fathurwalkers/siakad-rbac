@@ -447,8 +447,6 @@ class GenerateController extends Controller
 
     public function generate_kepsek()
     {
-        $semester = Semester::all();
-        die;
         $faker = Faker::create('id_ID');
         $kelas = Kelas::all()->toArray();
         $semester = Semester::all()->toArray();
@@ -519,7 +517,14 @@ class GenerateController extends Controller
         ]);
         $save_guru->save();
 
-
+        $semester_all = Semester::all();
+        foreach ($semester_all as $item) {
+            $update_semester = $item->update([
+                'semester_nipkepsek' => $save_guru->guru_nip,
+                'updated_at' => now()
+            ]);
+        }
+        return redirect()->route('dashboard')->with('status', 'Berhasil melakukan Generate Data Kepala Sekolah.');
     }
 
     public function generate_all()

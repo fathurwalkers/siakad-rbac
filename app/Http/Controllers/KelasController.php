@@ -33,6 +33,14 @@ class KelasController extends Controller
                     'kelas' => $kelas,
                 ]);
                 break;
+            case 'kepsek':
+                $kelas = Kelas::all();
+                $siswa = Siswa::all();
+                return view('dashboard.daftar-kelas', [
+                    'users' => $users,
+                    'kelas' => $kelas,
+                ]);
+                break;
             case 'guru':
                 $kelas = Kelas::all();
                 $siswa = Siswa::all();

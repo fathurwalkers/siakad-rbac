@@ -36,6 +36,17 @@ class NilaiController extends Controller
                     'matapelajaran' => $matapelajaran,
                 ]);
                 break;
+            case 'kepsek':
+                $nilai = Nilai::all();
+                $siswa = Siswa::all();
+                $matapelajaran = Matapelajaran::all();
+                return view('dashboard.daftar-nilai', [
+                    'users' => $users,
+                    'nilai' => $nilai,
+                    'siswa' => $siswa,
+                    'matapelajaran' => $matapelajaran,
+                ]);
+                break;
             case 'guru':
                 $guru = Guru::where('login_id', $users->id)->first();
                 $kelas = Kelas::find($guru->kelas_id);
