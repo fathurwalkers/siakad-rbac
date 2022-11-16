@@ -3,6 +3,15 @@
         <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
             <i class="fa fa-bars"></i>
         </button>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h5 class="my-auto ml-2 text-white">
+                    <b> SISTEM INFORMASI AKADEMIK SMPN 17 BATARAGURU  </b>
+                </h5>
+            </div>
+        </div>
+
         <ul class="navbar-nav ml-auto">
             {{-- <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
