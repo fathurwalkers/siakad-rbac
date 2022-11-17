@@ -34,12 +34,16 @@
                                     </b>
                                 </h4>
                             </div>
+
+                            @if ($users->login_level == 'admin')
                             <div class="col-sm-6 col-md-6 col-lg-6 d-flex justify-content-end">
                                 <button type="button" class="btn btn-md btn-info" data-toggle="modal"
                                     data-target="#modaltambah">
                                     Tambah Guru
                                 </button>
                             </div>
+                            @endif
+
                         </div>
 
                         {{-- MODAL TAMBAH DATA SISWA --}}
@@ -187,7 +191,11 @@
                                             <th>No. Telepon</th>
                                             <th>Mata Pelajaran</th>
                                             <th>Kelas</th>
+
+                                            @if ($users->login_level == 'admin')
                                             <th>Kelola</th>
+                                            @endif
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -209,6 +217,8 @@
                                                 <td>{{ $item->guru_telepon }}</td>
                                                 <td>{{ $item->matapelajaran->matapelajaran_nama }}</td>
                                                 <td>{{ $item->kelas->kelas_nama }}</td>
+
+                                                @if ($users->login_level == 'admin')
                                                 <td>
                                                     <div class="row">
                                                         <div
@@ -225,6 +235,8 @@
                                                         </div>
                                                     </div>
                                                 </td>
+                                                @endif
+
                                             </tr>
 
 

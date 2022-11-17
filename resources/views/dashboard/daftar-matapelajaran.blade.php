@@ -34,12 +34,14 @@
                                     </b>
                                 </h4>
                             </div>
+                            @if ($users->login_level == 'admin')
                             <div class="col-sm-6 col-md-6 col-lg-6 d-flex justify-content-end">
                                 <button class="btn btn-md btn-info" @if($users->login_level == "admin" || $users->login_level == "kepsek") type="button" data-toggle="modal"
                                     data-target="#modaltambah" @endif>
                                     Tambah Mata Pelajaran
                                 </button>
                             </div>
+                            @endif
 
                             {{-- MODAL TAMBAH DATA MATA PELAJARAN --}}
                             <div class="modal fade" id="modaltambah" tabindex="-1" role="dialog"
