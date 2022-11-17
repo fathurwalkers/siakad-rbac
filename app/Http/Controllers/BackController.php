@@ -24,6 +24,29 @@ class BackController extends Controller
         return view('dashboard.index');
     }
 
+    public function daftar_akun()
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        // $akun = Login::all();
+        $akun = Login::where('login_level', '!=', 'admin')->get();
+        $siswa = Siswa::all();
+        return view('dashboard.daftar-akun', [
+            'users' => $users,
+            'akun' => $akun,
+        ]);
+    }
+
+    public function hapus_akun(Request $request)
+    {
+        $akun_id = $request->hapus_id;
+        $akun = Data::find($akun_id);
+        $login = Login::find($akun->login_id);
+        $alert = "Berhasil menghapus Data Akun : " . $akun->data_nama;
+        $login->forceDelete();
+        return redirect()->route('data-akun')->with('status', $alert);
+    }
+
     public function login_siswa()
     {
         $users = session('data_login');

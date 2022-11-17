@@ -122,6 +122,7 @@
                     <h6 class="collapse-header">Manajemen Pengguna</h6>
                     <a class="collapse-item" href="{{ route('daftar-siswa') }}">Daftar Siswa</a>
                     <a class="collapse-item" href="{{ route('daftar-guru') }}">Daftar Guru</a>
+                    <a class="collapse-item" href="{{ route('daftar-akun') }}">Daftar Akun</a>
                 </div>
             </div>
         </li>

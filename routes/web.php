@@ -55,6 +55,10 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     Route::post('matapelajaran/tambah-matapelajaran', [MatapelajaranController::class, 'post_tambah_matapelajaran'])->name('post-tambah-matapelajaran');
     Route::post('matapelajaran/ubah-matapelajaran/{id}', [MatapelajaranController::class, 'post_ubah_matapelajaran'])->name('post-ubah-matapelajaran');
     Route::post('matapelajaran/hapus-matapelajaran/{id}', [MatapelajaranController::class, 'post_hapus_matapelajaran'])->name('post-hapus-matapelajaran');
+
+    // AKUN ROUTE
+    Route::get('/akun/daftar-akun', [BackController::class, 'daftar_akun'])->name('daftar-akun');
+
 });
 
 Route::get('/generate', [GenerateController::class, 'generate_all'])->name('generate-all');
