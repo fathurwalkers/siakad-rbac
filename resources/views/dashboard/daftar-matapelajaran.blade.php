@@ -91,9 +91,11 @@
                                             <th>No.</th>
                                             <th>Mata Pelajaran</th>
                                             <th>Kode Mata Pelajaran</th>
-                                            {{-- @if ($users->login_level == "admin") --}}
+
+                                            @if ($users->login_level == "admin")
                                             <th>Kelola</th>
-                                            {{-- @endif --}}
+                                            @endif
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -102,22 +104,23 @@
                                                 <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td>{{ $item->matapelajaran_nama }}</td>
                                                 <td>{{ $item->matapelajaran_kode }}</td>
+
+                                                @if ($users->login_level == "admin")
                                                 <td>
                                                     <div class="row">
                                                         <div
                                                             class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
                                                             {{-- <button href="#"
                                                                 class="btn btn-sm btn-primary mr-1">Lihat</button> --}}
-
-                                                            @if ($users->login_level == "admin" || $users->login_level == "kepsek")
                                                             <button href="#"
                                                                 class="btn btn-sm btn-success mr-1" data-toggle="modal" data-target="#modalubah{{ $item->id }}">Ubah</button>
                                                             <button href="#" class="btn btn-sm btn-danger"
                                                                 data-toggle="modal" data-target="#modalhapus{{ $item->id }}">Hapus</button>
-                                                            @endif
                                                         </div>
                                                     </div>
                                                 </td>
+                                                @endif
+
                                             </tr>
 
                                             {{-- MODAL HAPUS MATA PELAJARAN --}}

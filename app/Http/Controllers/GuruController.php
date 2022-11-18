@@ -112,7 +112,7 @@ class GuruController extends Controller
         // GENERATE DATA LOGIN
         $login = new Login;
         $token = Str::random(16);
-        $level = "user";
+        $level = "guru";
         $hashPassword = Hash::make('12345', [
             'rounds' => 12,
         ]);
