@@ -81,4 +81,57 @@ class NilaiController extends Controller
             'nilai' => $nilai,
         ]);
     }
+
+    public function input_nilai_matapelajaran()
+    {
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $matapelajaran = Matapelajaran::all();
+        return view('dashboard.input-nilai-matapelajaran', [
+            'users' => $users,
+            'matapelajaran' => $matapelajaran,
+        ]);
+    }
+
+    public function input_nilai($id)
+    {
+        $matapelajaran_id = $id;
+        $session_users = session('data_login');
+        $users = Login::find($session_users->id);
+        $matapelajaran = Matapelajaran::find($matapelajaran_id);
+        $nilai = Nilai::where('matapelajaran_id', $matapelajaran->id)->get();
+        return view('dashboard.input-nilai', [
+            'users' => $users,
+            'nilai' => $nilai,
+            'matapelajaran' => $matapelajaran,
+        ]);
+    }
+
+    public function post_input_nilai(Request $request, $id)
+    {
+        $matapelajaran_id = $id;
+        $session_users = session('data_login');
+
+        $iter = $request->iter;
+
+        foreach ($iter as $items) {
+            $siswa = Siswa::find($request->siswa_id[$items]);
+            $matapelajaran = Matapelajaran::find($request->matapelajaran_id[$items]);
+            dump($siswa);
+            dump($matapelajaran);
+            dump($items);
+            dump($request->siswa_id[$items]);
+            dump($request->matapelajaran_id[$items]);
+            dump($request->nilai_siswa_tugas[$items]);
+            dump($request->nilai_siswa_absensi[$items]);
+            dump($request->nilai_siswa_uts[$items]);
+            dump($request->nilai_siswa_uas[$items]);
+            dump($request->nilai_siswa_ratarata[$items]);
+            dump($request->nilai_siswa_keterangan[$items]);
+            echo "<br>";
+            echo "<br>";
+            echo "<br>";
+            echo "<br>";
+        }
+    }
 }

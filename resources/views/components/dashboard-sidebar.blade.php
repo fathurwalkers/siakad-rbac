@@ -75,6 +75,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Manajemen Nilai</h6>
                     <a class="collapse-item" href="{{ route('daftar-nilai') }}">Daftar Nilai</a>
+                    <a class="collapse-item" href="{{ route('input-nilai-matapelajaran') }}">Input Nilai</a>
                     {{-- <a class="collapse-item" href="#">Kelola Nilai</a> --}}
                 </div>
             </div>
