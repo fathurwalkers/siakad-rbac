@@ -46,6 +46,7 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
     Route::get('/nilai/input-nilai-matapelajaran', [NilaiController::class, 'input_nilai_matapelajaran'])->name('input-nilai-matapelajaran');
     Route::get('/nilai/input-nilai/{id}', [NilaiController::class, 'input_nilai'])->name('input-nilai');
     Route::get('/nilai/lihat-nilai/{id}', [NilaiController::class, 'lihat_nilai'])->name('lihat-nilai');
+    Route::get('/nilai/lihat-nilai-matapelajaran/{id}', [NilaiController::class, 'lihat_nilai_matapelajaran'])->name('lihat-nilai-matapelajaran');
     Route::post('/nilai/post-input-nilai/{id}', [NilaiController::class, 'post_input_nilai'])->name('post-input-nilai');
 
     // ABSENSI ROUTE
