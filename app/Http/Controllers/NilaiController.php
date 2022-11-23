@@ -127,47 +127,45 @@ class NilaiController extends Controller
         $session_users = session('data_login');
 
         $iter = $request->iter;
+        $matapelajaran = Matapelajaran::find($matapelajaran_id);
+        $nilai_iter = Nilai::where('matapelajaran_id', $matapelajaran->id)->get();
 
-        foreach ($iter as $items) {
-            $siswa = Siswa::find($request->siswa_id[$items]);
-            $matapelajaran = Matapelajaran::find($request->matapelajaran_id[$items]);
+        $sis = 1;
+        $mat = 1;
+        $tugas = 1;
+        $absensi = 1;
+        $uts = 1;
+        $uas = 1;
+        $ratarata = 1;
+        $keterangan = 1;
+
+        foreach ($request->increment as $items) {
+            $siswa = Siswa::find($request->siswa_id[$sis++]);
+            $matapelajaran = Matapelajaran::find($request->matapelajaran_id[$mat++]);
+            // $siswa = Siswa::find($items->siswa_id);
+            // $matapelajaran = Matapelajaran::find($items->matapelajaran_id);
+
             $nilai = Nilai::where('siswa_id', $siswa->id)->where('matapelajaran_id', $matapelajaran->id)->first();
 
-            dump($nilai);
+            $nilai_tugas = $request->nilai_siswa_tugas[$tugas++];
+            $nilai_absensi = $request->nilai_siswa_absensi[$absensi++];
+            $nilai_uts = $request->nilai_siswa_uts[$uts++];
+            $nilai_uas = $request->nilai_siswa_uas[$uas++];
+            $nilai_ratarata = $request->nilai_siswa_ratarata[$ratarata++];
+            $nilai_keterangan = $request->nilai_siswa_keterangan[$keterangan++];
 
-            // $nilai_tugas = $request->nilai_siswa_tugas[$items];
-            // $nilai_absensi = $request->nilai_siswa_absensi[$items];
-            // $nilai_uts = $request->nilai_siswa_uts[$items];
-            // $nilai_uas = $request->nilai_siswa_uas[$items];
-            // $nilai_ratarata = $request->nilai_siswa_ratarata[$items];
-            // $nilai_keterangan = $request->nilai_siswa_keterangan[$items];
+            $update_nilai = $nilai->update([
+                "nilai_siswa_tugas" => $nilai_tugas,
+                "nilai_siswa_absensi" => $nilai_absensi,
+                "nilai_siswa_uts" => $nilai_uts,
+                "nilai_siswa_uas" => $nilai_uas,
+                "nilai_ratarata" => $nilai_ratarata,
+                "nilai_keterangan" => $nilai_keterangan,
+                "nilai_tanggal" => now(),
+                "updated_at" => now(),
+            ]);
 
-            // $update_nilai = $nilai->update([
-            //     "nilai_siswa_tugas" => $nilai_tugas,
-            //     "nilai_siswa_absensi" => $nilai_absensi,
-            //     "nilai_siswa_uts" => $nilai_uts,
-            //     "nilai_siswa_uas" => $nilai_uas,
-            //     "nilai_ratarata" => $nilai_ratarata,
-            //     "nilai_keterangan" => $nilai_keterangan,
-            //     "nilai_tanggal" => now(),
-            //     "updated_at" => now(),
-            // ]);
-
-            // dump($siswa);
-            // dump($matapelajaran);
-            // dump($items);
-            // dump($request->siswa_id[$items]);
-            // dump($request->matapelajaran_id[$items]);
-            // dump($request->nilai_siswa_tugas[$items]);
-            // dump($request->nilai_siswa_absensi[$items]);
-            // dump($request->nilai_siswa_uts[$items]);
-            // dump($request->nilai_siswa_uas[$items]);
-            // dump($request->nilai_siswa_ratarata[$items]);
-            // dump($request->nilai_siswa_keterangan[$items]);
-            // echo "<br>";
-            // echo "<br>";
-            // echo "<br>";
-            // echo "<br>";
         }
+        return redirect()->route('input-nilai-matapelajaran')->with('status', 'Berhasil melakukan input nilai.');
     }
 }

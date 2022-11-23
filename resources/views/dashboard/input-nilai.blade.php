@@ -56,12 +56,27 @@
                                         </tr>
                                     </thead>
 
+                                    @php
+                                        $sis = 1;
+                                        $mat = 1;
+                                        $o = 1;
+                                        $k = 1;
+                                        $tugas = 1;
+                                        $absensi = 1;
+                                        $uts = 1;
+                                        $uas = 1;
+                                        $ratarata = 1;
+                                        $keterangan = 1;
+                                    @endphp
                                     <tbody>
                                         @foreach ($nilai as $item)
                                             <tr>
+                                                <input type="hidden" name="increment[{{$k++}}]" value="{{ $o++ }}">
                                                 <input type="hidden" name="iter[{{$item->id}}]" value="{{ $item->id }}">
-                                                <input type="hidden" name="siswa_id[{{$item->id}}]" value="{{ $item->siswa->id }}">
-                                                <input type="hidden" name="matapelajaran_id[{{$item->id}}]" value="{{ $item->matapelajaran->id }}">
+
+                                                <input type="hidden" name="siswa_id[{{$sis++}}]" value="{{ $item->siswa->id }}">
+
+                                                <input type="hidden" name="matapelajaran_id[{{$mat++}}]" value="{{ $item->matapelajaran->id }}">
 
                                                 <td class="text-center">{{ $loop->iteration }}</td>
 
@@ -69,27 +84,27 @@
                                                 <td>{{ $item->matapelajaran->matapelajaran_nama }}</td>
 
                                                 <td>
-                                                    <input type="number" min="0" max="100" name="nilai_siswa_tugas[{{ $item->id }}]" placeholder="Nilai Tugas...">
+                                                    <input type="number" min="0" max="100" name="nilai_siswa_tugas[{{ $tugas++ }}]" placeholder="Nilai Tugas...">
                                                 </td>
 
                                                 <td>
-                                                    <input type="number" min="0" max="100" name="nilai_siswa_absensi[{{ $item->id }}]" placeholder="Nilai Absensi...">
+                                                    <input type="number" min="0" max="100" name="nilai_siswa_absensi[{{ $absensi++ }}]" placeholder="Nilai Absensi...">
                                                 </td>
 
                                                 <td>
-                                                    <input type="number" min="0" max="100" name="nilai_siswa_uts[{{ $item->id }}]" placeholder="Nilai UTS...">
+                                                    <input type="number" min="0" max="100" name="nilai_siswa_uts[{{ $uts++ }}]" placeholder="Nilai UTS...">
                                                 </td>
 
                                                 <td>
-                                                    <input type="number" min="0" max="100" name="nilai_siswa_uas[{{ $item->id }}]" placeholder="Nilai UAS...">
+                                                    <input type="number" min="0" max="100" name="nilai_siswa_uas[{{ $uas++ }}]" placeholder="Nilai UAS...">
                                                 </td>
 
                                                 <td>
-                                                    <input type="number" min="0" max="100" name="nilai_siswa_ratarata[{{ $item->id }}]" placeholder="Nilai Rata - Rata...">
+                                                    <input type="number" min="0" max="100" name="nilai_siswa_ratarata[{{ $ratarata++ }}]" placeholder="Nilai Rata - Rata...">
                                                 </td>
 
                                                 <td>
-                                                    <input type="text" name="nilai_siswa_keterangan[{{ $item->id }}]" placeholder="Keterangan Nilai...">
+                                                    <input type="text" name="nilai_siswa_keterangan[{{ $keterangan++ }}]" placeholder="Keterangan Nilai...">
                                                 </td>
 
                                             </tr>
