@@ -183,31 +183,31 @@ class NilaiController extends Controller
                 $nilai_tugas = $request->nilai_siswa_tugas[$tugas];
             }
 
-            if ($cek_nilai_tugas == null) {
+            if ($cek_nilai_absensi == null) {
                 $nilai_absensi = $nilai->nilai_siswa_absensi;
             } else {
                 $nilai_absensi = $request->nilai_siswa_absensi[$absensi];
             }
 
-            if ($cek_nilai_tugas == null) {
+            if ($cek_nilai_uts == null) {
                 $nilai_uts = $nilai->nilai_siswa_uts;
             } else {
                 $nilai_uts = $request->nilai_siswa_uts[$uts];
             }
 
-            if ($cek_nilai_tugas == null) {
+            if ($cek_nilai_uas == null) {
                 $nilai_uas = $nilai->nilai_siswa_uas;
             } else {
                 $nilai_uas = $request->nilai_siswa_uas[$uas];
             }
 
-            if ($cek_nilai_tugas == null) {
+            if ($cek_nilai_ratarata == null) {
                 $nilai_ratarata = $nilai->nilai_siswa_ratarata;
             } else {
                 $nilai_ratarata = $request->nilai_siswa_ratarata[$ratarata];
             }
 
-            if ($cek_nilai_tugas == null) {
+            if ($cek_nilai_keterangan == null) {
                 $nilai_keterangan = $nilai->nilai_siswa_keterangan;
             } else {
                 $nilai_keterangan = $request->nilai_siswa_keterangan[$keterangan];
