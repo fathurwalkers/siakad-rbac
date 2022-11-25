@@ -147,6 +147,23 @@ class NilaiController extends Controller
 
             $nilai = Nilai::where('siswa_id', $siswa->id)->where('matapelajaran_id', $matapelajaran->id)->first();
 
+
+            $cek_nilai_tugas = $request->nilai_siswa_tugas[$tugas++];
+            $cek_nilai_absensi = $request->nilai_siswa_absensi[$absensi++];
+            $cek_nilai_uts = $request->nilai_siswa_uts[$uts++];
+            $cek_nilai_uas = $request->nilai_siswa_uas[$uas++];
+            $cek_nilai_ratarata = $request->nilai_siswa_ratarata[$ratarata++];
+            $cek_nilai_keterangan = $request->nilai_siswa_keterangan[$keterangan++];
+
+            dump($cek_nilai_tugas);
+            dump($cek_nilai_absensi);
+            dump($cek_nilai_uts);
+            dump($cek_nilai_uas);
+            dump($cek_nilai_ratarata);
+            dump($cek_nilai_keterangan);
+            die;
+
+
             $nilai_tugas = $request->nilai_siswa_tugas[$tugas++];
             $nilai_absensi = $request->nilai_siswa_absensi[$absensi++];
             $nilai_uts = $request->nilai_siswa_uts[$uts++];

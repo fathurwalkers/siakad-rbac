@@ -83,8 +83,8 @@
             </div>
         </li>
 
-
-        {{-- <li class="nav-item">
+        @if ($users->login_level == 'guru')
+        <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm24"
                 aria-expanded="true" aria-controls="collapseForm24">
                 <i class="fab fa-fw fa-wpforms"></i>
@@ -96,7 +96,8 @@
                     <a class="collapse-item" href="{{ route('daftar-absen') }}">Daftar Absen</a>
                 </div>
             </div>
-        </li> --}}
+        </li>
+        @endif
 
 
         {{-- <li class="nav-item">
