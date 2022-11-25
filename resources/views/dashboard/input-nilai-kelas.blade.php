@@ -1,12 +1,12 @@
 @extends('layouts.dashboard-layout')
 
-@section('title', 'Dashboard - Input Nilai - Pilih Matapelajaran ')
+@section('title', 'Dashboard - Input Nilai - Pilih Kelas')
 
 @push('css')
     <link href="{{ asset('datatables') }}/datatables.min.css" rel="stylesheet">
 @endpush
 
-@section('content-title', 'Dashboard - Input Nilai - Pilih Matapelajaran ')
+@section('content-title', 'Dashboard - Input Nilai - Pilih Kelas')
 
 {{-- ------------------- main content ------------------- --}}
 @section('main-content')
@@ -31,7 +31,7 @@
                             <div class="col-sm-6 col-md-6 col-lg-6">
                                 <h4>
                                     <b>
-                                        Input Nilai - Pilih Matapelajaran
+                                        Input Nilai - Pilih Kelas
                                     </b>
                                 </h4>
                             </div>
@@ -44,25 +44,25 @@
                                     <thead class="thead-dark">
                                         <tr>
                                             <th>No.</th>
-                                            <th>Mata Pelajaran</th>
-                                            <th>Kode Mata Pelajaran</th>
+                                            <th>Kelas</th>
+                                            <th>Kode Kelas</th>
 
                                             <th>Kelola</th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($matapelajaran as $item)
+                                        @foreach ($kelas as $item)
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                                <td>{{ $item->matapelajaran_nama }}</td>
-                                                <td>{{ $item->matapelajaran_kode }}</td>
+                                                <td>{{ $item->kelas_nama }}</td>
+                                                <td>{{ $item->kelas_kode }}</td>
 
                                                 <td>
                                                     <div class="row">
                                                         <div
                                                             class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                                                <button onclick="location.href = '{{ route('input-nilai', [$item->id, $kelas->id]) }}';"
+                                                                <button onclick="location.href = '{{ route('input-nilai-matapelajaran', $item->id) }}';"
                                                                         class="btn btn-sm btn-primary mr-1">Input Nilai</button>
                                                         </div>
                                                     </div>

@@ -43,11 +43,12 @@ Route::group(['prefix' => '/dashboard', 'middleware' => 'ceklogin'], function ()
 
     // NILAI ROUTE
     Route::get('/nilai/daftar-nilai', [NilaiController::class, 'daftar_nilai'])->name('daftar-nilai');
-    Route::get('/nilai/input-nilai-matapelajaran', [NilaiController::class, 'input_nilai_matapelajaran'])->name('input-nilai-matapelajaran');
-    Route::get('/nilai/input-nilai/{id}', [NilaiController::class, 'input_nilai'])->name('input-nilai');
+    Route::get('/nilai/input-nilai-kelas', [NilaiController::class, 'input_nilai_kelas'])->name('input-nilai-kelas');
+    Route::get('/nilai/input-nilai-matapelajaran/{id}', [NilaiController::class, 'input_nilai_matapelajaran'])->name('input-nilai-matapelajaran');
+    Route::get('/nilai/input-nilai/{matapelajaran_id}/{kelas_id}', [NilaiController::class, 'input_nilai'])->name('input-nilai');
     Route::get('/nilai/lihat-nilai/{id}', [NilaiController::class, 'lihat_nilai'])->name('lihat-nilai');
     Route::get('/nilai/lihat-nilai-matapelajaran/{id}', [NilaiController::class, 'lihat_nilai_matapelajaran'])->name('lihat-nilai-matapelajaran');
-    Route::post('/nilai/post-input-nilai/{id}', [NilaiController::class, 'post_input_nilai'])->name('post-input-nilai');
+    Route::post('/nilai/post-input-nilai/{matapelajaran_id}/{kelas_id}', [NilaiController::class, 'post_input_nilai'])->name('post-input-nilai');
 
     // ABSENSI ROUTE
     Route::get('/absen/daftar-absen', [AbsenController::class, 'daftar_absen'])->name('daftar-absen');

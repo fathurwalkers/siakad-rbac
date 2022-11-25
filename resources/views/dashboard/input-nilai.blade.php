@@ -36,7 +36,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12">
 
-                            <form action="{{ route('post-input-nilai', $matapelajaran->id) }}" method="POST">
+                            <form action="{{ route('post-input-nilai', [$matapelajaran->id, $kelas->id]) }}" method="POST">
                                 @csrf
                             <div class="table-responsive">
 

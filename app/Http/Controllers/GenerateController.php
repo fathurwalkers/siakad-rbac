@@ -168,6 +168,7 @@ class GenerateController extends Controller
         $siswa = Siswa::all();
         $matapelajaran = Matapelajaran::all();
         $faker = Faker::create('id_ID');
+        $kelas = Kelas::all();
 
         foreach ($siswa as $item) {
             $nilai_tugas = $faker->numberBetween(0, 100);
@@ -197,6 +198,7 @@ class GenerateController extends Controller
                     "nilai_ratarata" => $nilai_ratarata,
                     "nilai_keterangan" => $nilai_keterangan,
                     "nilai_tanggal" => now(),
+                    "kelas_id" => $item->kelas_id,
                     "matapelajaran_id" => $items->id,
                     "siswa_id" => $item->id,
                     "created_at" => now(),
