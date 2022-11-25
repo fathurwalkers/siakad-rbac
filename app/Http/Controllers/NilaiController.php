@@ -154,14 +154,6 @@ class NilaiController extends Controller
         $ratarata = 1;
         $keterangan = 1;
 
-        // dump($request->nilai_siswa_tugas);
-        // dump($request->nilai_siswa_absensi);
-        // dump($request->nilai_siswa_uts);
-        // dump($request->nilai_siswa_uas);
-        // dump($request->nilai_siswa_ratarata);
-        // dump($request->nilai_siswa_keterangan);
-        // die;
-
         foreach ($request->increment as $items) {
             $siswa = Siswa::find($request->siswa_id[$sis]);
             $matapelajaran = Matapelajaran::find($request->matapelajaran_id[$mat]);
@@ -213,13 +205,6 @@ class NilaiController extends Controller
                 $nilai_keterangan = $request->nilai_siswa_keterangan[$keterangan];
             }
 
-            // dump($cek_nilai_tugas);
-            // dump($cek_nilai_absensi);
-            // dump($cek_nilai_uts);
-            // dump($cek_nilai_uas);
-            // dump($cek_nilai_ratarata);
-            // dump($cek_nilai_keterangan);
-
             $update_nilai = $nilai->update([
                 "nilai_siswa_tugas" => $nilai_tugas,
                 "nilai_siswa_absensi" => $nilai_absensi,
@@ -230,22 +215,6 @@ class NilaiController extends Controller
                 "nilai_tanggal" => now(),
                 "updated_at" => now(),
             ]);
-            // dump($sis);
-            // dump($mat);
-            // dump($tugas);
-            // dump($absensi);
-            // dump($uts);
-            // dump($uas);
-            // dump($ratarata);
-            // dump($keterangan);
-            // $sis =+ 1;
-            // $mat =+ 1;
-            // $tugas =+ 1;
-            // $absensi =+ 1;
-            // $uts =+ 1;
-            // $uas =+ 1;
-            // $ratarata =+ 1;
-            // $keterangan =+ 1;
         }
         return redirect()->route('input-nilai-matapelajaran', [$matapelajaran->id, $kelas->id])->with('status', 'Berhasil melakukan input nilai.');
     }
