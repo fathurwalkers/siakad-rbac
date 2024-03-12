@@ -6,13 +6,14 @@ use App\Http\Controllers\BackController;
 use App\Http\Controllers\GenerateController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\MatapelajaranController;
 use App\Http\Controllers\NilaiController;
 use App\Models\Matapelajaran;
 
-Route::get('/', function () {
-    return redirect('/dashboard');
+Route::group(['prefix' => '/'], function () {
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 });
 
 Route::get('/login', [BackController::class, 'login_siswa'])->name('login');
