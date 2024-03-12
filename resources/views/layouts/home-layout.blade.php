@@ -12,16 +12,21 @@
     <meta name="author" content="Noviyanto Rachmady ['me@novay.web.id']" />
 
     <!-- Koleksi CSS -->
-    <link href="aset/paket/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" type="text/css" href="aset/paket/css/sticky-footer.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="aset/paket/css/icons.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="aset/paket/css/style.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="aset/paket/css/animate.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="aset/paket/css/onebyone.css" media="all" />
-    <link href="aset/css/utama.css" rel="stylesheet" />
+    <link href="{{ asset('assets/template') }}/aset/paket/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/template') }}/aset/paket/css/sticky-footer.css"
+        media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/template') }}/aset/paket/css/icons.css"
+        media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/template') }}/aset/paket/css/style.css"
+        media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/template') }}/aset/paket/css/animate.css"
+        media="all" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/template') }}/aset/paket/css/onebyone.css"
+        media="all" />
+    <link href="{{ asset('assets/template') }}/aset/css/utama.css" rel="stylesheet" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="aset/img/favicon.ico" />
+    <link rel="shortcut icon" href="{{ asset('assets/template') }}/aset/img/favicon.ico" />
 </head>
 
 <body>
@@ -30,8 +35,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4 kiri">
-                        <strong class="logo"><a href="index.html"><img src="aset/img/logo3.png"
-                                    alt="Logo"></a></strong>
+                        <strong class="logo"><a href="index.html"><img
+                                    src="{{ asset('assets/template') }}/aset/img/logo3.png" alt="Logo"></a></strong>
                     </div>
                     <div class="col-sm-8 kanan">
 
@@ -153,7 +158,7 @@
                 <div id="onebyone_carousel" class="carousel slide gallery-holder">
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img src="aset/img/01_slide_1.jpg" alt="">
+                            <img src="{{ asset('assets/template') }}/aset/img/01_slide_1.jpg" alt="">
                             <div class="slide_content">
                                 <div class="container gambar-gerak">
                                     <div class="hold-text pull-right">
@@ -172,7 +177,7 @@
                             </div>
                         </div><!-- /.item -->
                         <div class="item">
-                            <img src="aset/img/01_slide_2.jpg" alt="">
+                            <img src="{{ asset('assets/template') }}/aset/img/01_slide_2.jpg" alt="">
                             <div class="slide_content">
                                 <div class="container gambar-gerak">
                                     <div class="hold-text pull-right">
@@ -190,7 +195,7 @@
                             </div>
                         </div><!-- /.item -->
                         <div class="item">
-                            <img src="aset/img/01_slide_3.jpg" alt="">
+                            <img src="{{ asset('assets/template') }}/aset/img/01_slide_3.jpg" alt="">
                             <div class="slide_content">
                                 <div class="container gambar-gerak">
                                     <div class="hold-text pull-right">
@@ -227,8 +232,8 @@
                                 <blockquote class="blockquote-about">
                                     <cite class="author pull-left">
                                         <span class="hold-img"><a href="kabar-sekolah-detail.html"><img
-                                                    src="aset/paket/images/img165.jpg" alt="image" width="85"
-                                                    height="87"></a></span>
+                                                    src="{{ asset('assets/template') }}/aset/paket/images/img165.jpg"
+                                                    alt="image" width="85" height="87"></a></span>
                                         <small>Oleh <a href="404.html">Administrator</a></small>
                                     </cite>
                                     <div class="block">
@@ -251,8 +256,8 @@
                                 <blockquote class="blockquote-about">
                                     <cite class="author pull-left">
                                         <span class="hold-img"><a href="kabar-sekolah-detail.html"><img
-                                                    src="aset/paket/images/img33.jpg" alt="image" width="85"
-                                                    height="87"></a></span>
+                                                    src="{{ asset('assets/template') }}/aset/paket/images/img33.jpg"
+                                                    alt="image" width="85" height="87"></a></span>
                                         <small>Oleh <a href="404.html">Administrator</a></small>
                                     </cite>
                                     <div class="block">
@@ -275,8 +280,8 @@
                                 <blockquote class="blockquote-about">
                                     <cite class="author pull-left">
                                         <span class="hold-img"><a href="kabar-sekolah-detail.html"><img
-                                                    src="aset/paket/images/img166.jpg" alt="image" width="85"
-                                                    height="87"></a></span>
+                                                    src="{{ asset('assets/template') }}/aset/paket/images/img166.jpg"
+                                                    alt="image" width="85" height="87"></a></span>
                                         <small>Oleh <a href="404.html">Administrator</a></small>
                                     </cite>
                                     <div class="block">
@@ -299,8 +304,8 @@
                                 <blockquote class="blockquote-about">
                                     <cite class="author pull-left">
                                         <span class="hold-img"><a href="kabar-sekolah-detail.html"><img
-                                                    src="aset/paket/images/img167.jpg" alt="image" width="85"
-                                                    height="87"></a></span>
+                                                    src="{{ asset('assets/template') }}/aset/paket/images/img167.jpg"
+                                                    alt="image" width="85" height="87"></a></span>
                                         <small>Oleh <a href="404.html">Administrator</a></small>
                                     </cite>
                                     <div class="block">
@@ -343,7 +348,8 @@
                             <div class="frame sambutan" id="kepala-sekolah">
                                 <div class="hold-line">
                                     <span class="hold-img">
-                                        <img class="img-circle" src="aset/img/img103.jpg" alt="image"
+                                        <img class="img-circle"
+                                            src="{{ asset('assets/template') }}/aset/img/img103.jpg" alt="image"
                                             width="210" height="210">
                                     </span>
                                     <strong class="title">Drs. H. Suhari</strong>
@@ -388,25 +394,25 @@
                                         <ul class="list-partners">
                                             <li>
                                                 <a href="404.html" title="Dinas Pendidikan">
-                                                    <img src="aset/img/logo-pendidikan.png" alt="image"
-                                                        width="118" height="115">
+                                                    <img src="{{ asset('assets/template') }}/aset/img/logo-pendidikan.png"
+                                                        alt="image" width="118" height="115">
                                                 </a>
                                             </li>
                                             <li><a href="404.html" title="Website Kalimantan Timur"><img
-                                                        src="aset/img/logo-kaltim.png" alt="image" width="118"
-                                                        height="103"></a></li>
+                                                        src="{{ asset('assets/template') }}/aset/img/logo-kaltim.png"
+                                                        alt="image" width="118" height="103"></a></li>
                                             <li><a href="404.html" title="Pramuka Kaltim"><img
-                                                        src="aset/img/logo-pramuka.png" alt="image" width="97"
-                                                        height="98"></a></li>
+                                                        src="{{ asset('assets/template') }}/aset/img/logo-pramuka.png"
+                                                        alt="image" width="97" height="98"></a></li>
                                             <li><a href="404.html" title="Kota Palembang"><img
-                                                        src="aset/img/logo-palembang.png" alt="image"
-                                                        width="89" height="98"></a></li>
+                                                        src="{{ asset('assets/template') }}/aset/img/logo-palembang.png"
+                                                        alt="image" width="89" height="98"></a></li>
                                             <li><a href="404.html" title="SMKN 1 Berau"><img
-                                                        src="aset/img/logo-smk.png" alt="image" width="90"
-                                                        height="111"></a></li>
+                                                        src="{{ asset('assets/template') }}/aset/img/logo-smk.png"
+                                                        alt="image" width="90" height="111"></a></li>
                                             <li><a href="404.html" title="Persisam Samarinda"><img
-                                                        src="aset/img/logo-persisam.png" alt="image"
-                                                        width="97" height="98"></a></li>
+                                                        src="{{ asset('assets/template') }}/aset/img/logo-persisam.png"
+                                                        alt="image" width="97" height="98"></a></li>
                                             <li class="last">&nbsp;</li>
                                         </ul>
                                     </li>
@@ -455,15 +461,15 @@
     </div>
 
     <!-- Koleksi Javascript -->
-    <script type="text/javascript" src="aset/paket/js/jquery-2.0.3.min.js"></script>
-    <script type="text/javascript" src="aset/paket/js/bootstrap.min.js"></script>
-    <script src="aset/paket/js/less.js" type="text/javascript"></script>
-    <script type="text/javascript" src="aset/paket/js/jquery.main.js"></script>
+    <script type="text/javascript" src="{{ asset('assets/template') }}/aset/paket/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="{{ asset('assets/template') }}/aset/paket/js/bootstrap.min.js"></script>
+    <script src="{{ asset('assets/template') }}/aset/paket/js/less.js" type="text/javascript"></script>
+    <script type="text/javascript" src="{{ asset('assets/template') }}/aset/paket/js/jquery.main.js"></script>
     <!--[if lte IE 9 ]>
-   <script type="text/javascript" src="aset/paket/js/modernizr-1.7.min.js"></script>
-   <script type="text/javascript" src="aset/paket/js/placeholder.js"></script>
+   <script type="text/javascript" src="{{ asset('assets/template') }}/aset/paket/js/modernizr-1.7.min.js"></script>
+   <script type="text/javascript" src="{{ asset('assets/template') }}/aset/paket/js/placeholder.js"></script>
   <![endif]-->
-    <script src="aset/paket/js/jquery.onecarousel.min.js"></script>
+    <script src="{{ asset('assets/template') }}/aset/paket/js/jquery.onecarousel.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             "use strict";
