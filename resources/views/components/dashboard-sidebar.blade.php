@@ -4,7 +4,7 @@
             <div class="sidebar-brand-icon">
                 <img src="{{ asset('assets/ruangadmin') }}/img/logo/logo2.png">
             </div>
-            <div class="sidebar-brand-text mx-3">SIAKAD SMP</div>
+            <div class="sidebar-brand-text mx-3">SISFO</div>
         </a>
         <hr class="sidebar-divider my-0">
         <li class="nav-item">

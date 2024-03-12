@@ -62,14 +62,14 @@
                                                     <div class="row">
                                                         <div
                                                             class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                                                <button onclick="location.href = '{{ route('lihat-nilai-matapelajaran', $item->id) }}';"
-                                                                        class="btn btn-sm btn-primary mr-1">Lihat Nilai</button>
+                                                            <button
+                                                                onclick="location.href = '{{ route('lihat-nilai-matapelajaran', $item->id) }}';"
+                                                                class="btn btn-sm btn-primary mr-1">Lihat Nilai</button>
                                                         </div>
                                                     </div>
                                                 </td>
 
                                             </tr>
-
                                         @endforeach
                                     </tbody>
                                 </table>

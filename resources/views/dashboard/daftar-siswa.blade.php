@@ -36,12 +36,12 @@
                             </div>
 
                             @if ($users->login_level == 'admin')
-                            <div class="col-sm-6 col-md-6 col-lg-6 d-flex justify-content-end">
-                                <button type="button" class="btn btn-md btn-info" data-toggle="modal"
-                                    data-target="#modaltambah">
-                                    Tambah Siswa
-                                </button>
-                            </div>
+                                <div class="col-sm-6 col-md-6 col-lg-6 d-flex justify-content-end">
+                                    <button type="button" class="btn btn-md btn-info" data-toggle="modal"
+                                        data-target="#modaltambah">
+                                        Tambah Siswa
+                                    </button>
+                                </div>
                             @endif
 
                         </div>
@@ -165,9 +165,9 @@
                                             <th>Jenis Kelamin</th>
                                             <th>No. Telepon</th>
                                             <th>Status</th>
-                                            <th>Kelas</th>
+                                            {{-- <th>Kelas</th> --}}
                                             @if ($users->login_level == 'admin')
-                                            <th>Kelola</th>
+                                                <th>Kelola</th>
                                             @endif
                                         </tr>
                                     </thead>
@@ -190,25 +190,25 @@
                                                 </td>
                                                 <td>{{ $item->siswa_telepon }}</td>
                                                 <td>{{ $item->siswa_status }}</td>
-                                                <td>{{ $item->kelas->kelas_nama }}</td>
+                                                {{-- <td>{{ $item->kelas->kelas_nama }}</td> --}}
 
                                                 @if ($users->login_level == 'admin')
-                                                <td>
-                                                    <div class="row">
-                                                        <div
-                                                            class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                                            <button data-toggle="modal"
-                                                                data-target="#modallihat{{ $item->id }}"
-                                                                class="btn btn-sm btn-primary mr-1">Lihat</button>
-                                                            <button data-toggle="modal"
-                                                                data-target="#modaltambahsiswa{{ $item->id }}"
-                                                                class="btn btn-sm btn-success mr-1">Ubah</button>
-                                                            <button data-toggle="modal"
-                                                                data-target="#modalhpus{{ $item->id }}"
-                                                                class="btn btn-sm btn-danger">Hapus</button>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div
+                                                                class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
+                                                                <button data-toggle="modal"
+                                                                    data-target="#modallihat{{ $item->id }}"
+                                                                    class="btn btn-sm btn-primary mr-1">Lihat</button>
+                                                                <button data-toggle="modal"
+                                                                    data-target="#modaltambahsiswa{{ $item->id }}"
+                                                                    class="btn btn-sm btn-success mr-1">Ubah</button>
+                                                                <button data-toggle="modal"
+                                                                    data-target="#modalhpus{{ $item->id }}"
+                                                                    class="btn btn-sm btn-danger">Hapus</button>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
+                                                    </td>
                                                 @endif
                                             </tr>
 

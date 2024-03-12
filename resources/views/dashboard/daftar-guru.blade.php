@@ -36,12 +36,12 @@
                             </div>
 
                             @if ($users->login_level == 'admin')
-                            <div class="col-sm-6 col-md-6 col-lg-6 d-flex justify-content-end">
-                                <button type="button" class="btn btn-md btn-info" data-toggle="modal"
-                                    data-target="#modaltambah">
-                                    Tambah Guru
-                                </button>
-                            </div>
+                                <div class="col-sm-6 col-md-6 col-lg-6 d-flex justify-content-end">
+                                    <button type="button" class="btn btn-md btn-info" data-toggle="modal"
+                                        data-target="#modaltambah">
+                                        Tambah Guru
+                                    </button>
+                                </div>
                             @endif
 
                         </div>
@@ -83,10 +83,13 @@
                                             <div class="row">
                                                 <div class="col-sm-6 col-md-6 col-lg-6">
                                                     <div class="form-group">
-                                                        <label class="input-group-text" for="matapelajaran_id">Mata Pelajaran</label>
-                                                        <select class="form-control" id="matapelajaran_id" name="matapelajaran_id">
+                                                        <label class="input-group-text" for="matapelajaran_id">Mata
+                                                            Pelajaran</label>
+                                                        <select class="form-control" id="matapelajaran_id"
+                                                            name="matapelajaran_id">
                                                             @foreach ($matapelajaran as $mat)
-                                                                <option value="{{ $mat->id }}">{{ $mat->matapelajaran_nama }}
+                                                                <option value="{{ $mat->id }}">
+                                                                    {{ $mat->matapelajaran_nama }}
                                                                 </option>
                                                             @endforeach
                                                         </select>
@@ -97,7 +100,8 @@
                                                         <label class="input-group-text" for="semester_id">Semester</label>
                                                         <select class="form-control" id="semester_id" name="semester_id">
                                                             @foreach ($semester as $sem)
-                                                                <option value="{{ $sem->id }}">{{ $sem->semester_tahunajaran }}
+                                                                <option value="{{ $sem->id }}">
+                                                                    {{ $sem->semester_tahunajaran }}
                                                                 </option>
                                                             @endforeach
                                                         </select>
@@ -110,8 +114,7 @@
                                                     <div class="form-group">
                                                         <label for="guru_telepon">No. HP / Telepon</label>
                                                         <input type="text" class="form-control" id="guru_telepon"
-                                                            aria-describedby="emailHelp" placeholder=""
-                                                            name="guru_telepon">
+                                                            aria-describedby="emailHelp" placeholder="" name="guru_telepon">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6 col-md-6 col-lg-6">
@@ -190,10 +193,10 @@
                                             <th>Jenis Kelamin</th>
                                             <th>No. Telepon</th>
                                             <th>Mata Pelajaran</th>
-                                            <th>Kelas</th>
+                                            {{-- <th>Kelas</th> --}}
 
                                             @if ($users->login_level == 'admin')
-                                            <th>Kelola</th>
+                                                <th>Kelola</th>
                                             @endif
 
                                         </tr>
@@ -206,52 +209,53 @@
                                                 <td>{{ $item->guru_nip }}</td>
                                                 <td>
                                                     @switch($item->guru_jeniskelamin)
-                                                        @case("L")
+                                                        @case('L')
                                                             Laki - Laki
-                                                            @break
-                                                        @case("P")
+                                                        @break
+
+                                                        @case('P')
                                                             Perempuan
-                                                            @break
+                                                        @break
                                                     @endswitch
                                                 </td>
                                                 <td>{{ $item->guru_telepon }}</td>
                                                 <td>{{ $item->matapelajaran->matapelajaran_nama }}</td>
-                                                <td>{{ $item->kelas->kelas_nama }}</td>
+                                                {{-- <td>{{ $item->kelas->kelas_nama }}</td> --}}
 
                                                 @if ($users->login_level == 'admin')
-                                                <td>
-                                                    <div class="row">
-                                                        <div
-                                                            class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                                            <button data-toggle="modal"
-                                                            data-target="#modallihat{{ $item->id }}"
-                                                            class="btn btn-sm btn-primary mr-1">Lihat</button>
-                                                            <button data-toggle="modal"
-                                                            data-target="#modaltambahsiswa{{ $item->id }}"
-                                                            class="btn btn-sm btn-success mr-1">Ubah</button>
-                                                            <button data-toggle="modal"
-                                                            data-target="#modalhpus{{ $item->id }}"
-                                                            class="btn btn-sm btn-danger">Hapus</button>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div
+                                                                class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
+                                                                <button data-toggle="modal"
+                                                                    data-target="#modallihat{{ $item->id }}"
+                                                                    class="btn btn-sm btn-primary mr-1">Lihat</button>
+                                                                <button data-toggle="modal"
+                                                                    data-target="#modaltambahsiswa{{ $item->id }}"
+                                                                    class="btn btn-sm btn-success mr-1">Ubah</button>
+                                                                <button data-toggle="modal"
+                                                                    data-target="#modalhpus{{ $item->id }}"
+                                                                    class="btn btn-sm btn-danger">Hapus</button>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
+                                                    </td>
                                                 @endif
 
                                             </tr>
 
 
                                             {{-- MODAL HAPUS --}}
-                                            <div class="modal fade" id="modalhpus{{ $item->id }}"
-                                                tabindex="-1" role="dialog"
-                                                aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                                            <div class="modal fade" id="modalhpus{{ $item->id }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalLabelLogout"
+                                                aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="exampleModalLabelLogout">
                                                                 Konfirmasi
                                                                 Tindakan Penghapusan!</h5>
-                                                            <button type="button" class="close"
-                                                                data-dismiss="modal" aria-label="Close">
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
@@ -280,16 +284,16 @@
 
                                             {{-- MODAL UBAH --}}
                                             <div class="modal fade" id="modaltambahsiswa{{ $item->id }}"
-                                                tabindex="-1" role="dialog"
-                                                aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                                                tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
+                                                aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="exampleModalLabelLogout">
                                                                 Ubah Data Siswa
                                                             </h5>
-                                                            <button type="button" class="close"
-                                                                data-dismiss="modal" aria-label="Close">
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
@@ -302,8 +306,7 @@
                                                                     <div class="col-sm-6 col-md-6 col-lg-6">
                                                                         <div class="form-group">
                                                                             <label for="guru_nama">Nama</label>
-                                                                            <input type="text"
-                                                                                class="form-control"
+                                                                            <input type="text" class="form-control"
                                                                                 id="guru_nama"
                                                                                 aria-describedby="emailHelp"
                                                                                 name="guru_nama"
@@ -314,8 +317,7 @@
                                                                         <div class="form-group">
                                                                             <label for="guru_telepon">No.
                                                                                 Telepon</label>
-                                                                            <input type="text"
-                                                                                class="form-control"
+                                                                            <input type="text" class="form-control"
                                                                                 id="guru_telepon"
                                                                                 aria-describedby="emailHelp"
                                                                                 name="guru_telepon"
@@ -338,24 +340,26 @@
                                             {{-- END MODAL UBAH --}}
 
                                             {{-- MODAL LIHAT --}}
-                                            <div class="modal fade" id="modallihat{{ $item->id }}"
-                                                tabindex="-1" role="dialog"
-                                                aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                                            <div class="modal fade" id="modallihat{{ $item->id }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalLabelLogout"
+                                                aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="exampleModalLabelLogout">
                                                                 Data Siswa - {{ $item->guru_nama }}
                                                             </h5>
-                                                            <button type="button" class="close"
-                                                                data-dismiss="modal" aria-label="Close">
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="row border-1">
-                                                                <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                                                    <img src="{{ asset('assets') }}/{{ $item->guru_foto }}" alt="" width="150px">
+                                                                <div
+                                                                    class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
+                                                                    <img src="{{ asset('assets') }}/{{ $item->guru_foto }}"
+                                                                        alt="" width="150px">
                                                                 </div>
                                                             </div>
                                                             <br />
@@ -367,12 +371,13 @@
                                                                         Kelas : {{ $item->kelas->kelas_nama }} <br>
                                                                         Jenis Kelamin :
                                                                         @switch($item->guru_jeniskelamin)
-                                                                            @case("L")
+                                                                            @case('L')
                                                                                 Laki - Laki
-                                                                                @break
-                                                                            @case("P")
+                                                                            @break
+
+                                                                            @case('P')
                                                                                 Perempuan
-                                                                                @break
+                                                                            @break
                                                                         @endswitch <br>
                                                                         No. HP / Telepon : {{ $item->guru_telepon }} <br>
                                                                         Alamat : {{ $item->guru_alamat }} <br>
@@ -388,8 +393,6 @@
                                                 </div>
                                             </div>
                                             {{-- END MODAL LIHAT --}}
-
-
                                         @endforeach
                                     </tbody>
                                 </table>

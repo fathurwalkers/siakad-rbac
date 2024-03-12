@@ -29,7 +29,7 @@
                             <div class="col-lg-12">
                                 <div class="login-form">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">ADMIN LOGIN <br>SIAKAD SMP 17</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">ADMIN LOGIN <br>SIAKAD SMA 17</h1>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12 col-lg-12">
